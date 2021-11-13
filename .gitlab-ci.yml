@@ -62,7 +62,7 @@ Coverage:
 
 Deployment:
   rules:
-    - if: '$CI_COMMIT_REF_NAME == "master"'
+    - if: '$CI_COMMIT_REF_NAME == "main"'
   image: ruby:2.7
   stage: deploy
   before_script:
