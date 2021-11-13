@@ -76,6 +76,6 @@ Repo ini menyimpan TK Kelompok 10 mata kuliah RPL Ganjil 2021/2022
     python manage.py test --exclude-tag=functional
     ```
 
-[pipeline-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/master/pipeline.svg
-[coverage-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/master/coverage.svg
-[commits-gl]: https://gitlab.com/tk-rpl-a/hadirin/-/commits/master
+[pipeline-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/main/pipeline.svg
+[coverage-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/main/coverage.svg
+[commits-gl]: https://gitlab.com/tk-rpl-a/hadirin/-/commits/main
