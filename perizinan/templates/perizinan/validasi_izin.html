@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Validasi Izin</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="mx-40 my-20">
+  <h1 class="text-4xl my-7 text-gray-800">Validasi Izin</h1>
+  {% for izin in daftar_izin %}
+  <a href="{% url 'perizinan:detail_izin' izin.id %}">
+    <div class="my-8">
+      <h2>{{ izin.staf }}</h2>
+      <h2>{{ izin.tanggal }}</h2>
+      <p>{{ izin.status }}</p>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock content %}

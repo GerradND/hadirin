@@ -8,6 +8,7 @@
 
 body {
   font-family: 'Rubik', sans-serif;
+  padding-top: 55px;
 }
 
 .main-container {
@@ -20,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #045B62;
+  background-color: #045b62;
   box-sizing: border-box;
   padding: 0.2em 15vw;
   width: 100vw;
@@ -40,7 +41,9 @@ body {
   color: #fcfcfc;
 }
 
-.nav-links a:hover, .nav-brand:hover, .nav-profile img:hover {
+.nav-links a:hover,
+.nav-brand:hover,
+.nav-profile img:hover {
   opacity: 0.8;
 }
 
@@ -88,8 +91,8 @@ body {
   position: absolute;
   flex-direction: column;
   background-color: #fff;
-  color: #045B62;
-  border: 1px solid #BABABA;
+  color: #045b62;
+  border: 1px solid #bababa;
   border-radius: 10px;
   top: 3.3em;
   right: 0.5em;
@@ -97,5 +100,5 @@ body {
 }
 
 .dropdown-items a {
-  color: #045B62;
+  color: #045b62;
 }

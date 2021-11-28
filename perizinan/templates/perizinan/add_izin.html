@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Pengajuan Izin</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="mx-40 my-20">
+  <h1 class="text-4xl my-7 text-gray-800">Pengajuan Izin</h1>
+  <form action="" method="POST" class="form-box">
+    {% csrf_token %}
+    <div class="form-field">
+      <label class="field-label">Tanggal</label>
+      <input class="form-input" type="date">
+    </div>
+    <div class="form-field">
+      <label class="field-label">Keterangan</label>
+      <textarea class="form-input" placeholder="Keterangan" rows="10"></textarea>
+    </div>
+    <div class="form-buttons">
+      <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
+      <button class="button-fill" type="submit">Ajukan</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

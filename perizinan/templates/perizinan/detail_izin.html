@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Detail Izin</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="mx-40 my-20">
+  <h1 class="text-4xl my-7 text-gray-800">Detail Izin</h1>
+  <div class="my-8">
+    <h2>{{ izin.staf }}</h2>
+    <h2>{{ izin.tanggal }}</h2>
+    <p>{{ izin.keterangan }}</p>
+    <p>{{ izin.status }}</p>
+    <div>
+      <button class="button-fill">V</button>
+      <button class="button-fill">X</button>
+    </div>
+  </div>
+  <a href="{% url 'perizinan:validasi_izin' %}"><button class="button-outline">Kembali</button></a>
+</div>
+{% endblock content %}
