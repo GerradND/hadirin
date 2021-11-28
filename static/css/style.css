@@ -1,5 +1,5 @@
 /* Project-wide style */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
 
 * {
   padding: 0;
@@ -23,7 +23,7 @@ body {
   background-color: #045B62;
   box-sizing: border-box;
   padding: 0.2em 15vw;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   top: 0px;
 }
