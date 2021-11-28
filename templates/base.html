@@ -1,12 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    {% block meta %} {% endblock meta %}
-  </head>
 
   <body>
     <nav class="navbar">
@@ -25,9 +19,11 @@
             <a class="dropdown-item" href="">Logout</a>
           </div>
         </div>
-      </ul>
-    </nav>
-    {% block content %} {% endblock content %}
-    <script src="{% static 'js/navbar.js' %}" ></script>
-  </body>
+      </div>
+    </ul>
+  </nav>
+  {% block content %} {% endblock content %}
+  <script src="{% static 'js/navbar.js' %}"></script>
+</body>
+
 </html>
