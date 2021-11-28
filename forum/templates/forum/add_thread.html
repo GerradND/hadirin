@@ -4,14 +4,13 @@
 {% block meta %}
 <title>Hadirin - Add New Thread</title>
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock meta %}
 
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
 		<h1 class="form-heading">Tambah Topik baru</h1>
-			<form class="form-box" action="">
+			<form class="form-box" action="{% url 'forum:home' %}">
 				<div class="form-field">
 					<label class="field-label">Judul</label>
 					<input class="form-input" type="text" placeholder="Judul Topik">
@@ -21,7 +20,7 @@
 					<textarea class="form-input" placeholder="Konten" rows="10"></textarea>
 				</div>
 				<div class="form-buttons">
-					<a href="{% url 'forum:home' %}"><button class="button-outline">Batal</button></a>
+					<a href="{% url 'forum:home' %}"><button type="button" class="button-outline">Batal</button></a>
 					<button class="button-fill" type="submit">Simpan</button>
 				</div>
 		</div>

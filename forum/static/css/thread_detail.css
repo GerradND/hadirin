@@ -8,7 +8,7 @@
 }
 
 .thread-detail {
-    padding: 2em 2em 1em 2em;
+    padding: 2em 2em 1.5em 2em;
 }
 
 .thread-info {
@@ -63,7 +63,7 @@
 }
 
 
-.thread-reply {
+.thread-reply{
     width: 88%;
     padding: 2em;
 }
@@ -75,4 +75,27 @@
     margin-top: 1em;
     row-gap: 1em;
     width: 100%;
+}
+
+.reply-form {
+    width: 86%;
+    padding: 2em 2em 1em 2em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.reply-form h2 {
+    font-weight: 500;
+}
+
+.reply-buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 1em;
+    margin-top: 1em;
 }

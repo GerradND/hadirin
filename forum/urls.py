@@ -8,4 +8,5 @@ urlpatterns = [
     path('add/', views.add_thread, name='add_thread'),
     path('1/', views.thread_detail, name='detail'),
     path('1/edit/', views.edit_thread, name='edit_thread'),
+    path('1/reply/', views.reply_thread, name='reply_thread'),
 ]

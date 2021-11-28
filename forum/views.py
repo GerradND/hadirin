@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+# Dummy Data
 thread = {
     'user' : 'Budi Budiman',
     'title' : "Lorem ipsum dolor sit amet conquistador",
@@ -30,3 +31,6 @@ def add_thread(request):
 
 def edit_thread(request):
     return render(request, 'forum/edit_thread.html', {'thread' : thread})
+
+def reply_thread(request):
+    return render(request, 'forum/reply_thread.html')
