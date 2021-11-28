@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Forum</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/thread_detail.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<div class="thread-detail">
+			<h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2>
+			<div class="thread-info">
+				<span class="thread-author">Budi Budiman</span>
+				<span class="thread-postdate">November 28 2021, 7:54 PM</span>
+			</div>
+			<p class="thread-message">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+				industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+				scrambled it to make a type specimen book.
+			</p>
+		</div>
+		<div class="thread-replies">
+			<form class="reply-form" action="/forum/1/">
+				<h2>Re: Lorem ipsum dolor sit amet conquistador</h2>
+				<textarea class="form-input" rows="10" placeholder="Tulis pesan"></textarea>
+				<div class="reply-buttons">
+					<a href="/forum/1/"><button type="button" class="button-outline">Batal</button></a>
+					<button class="button-fill" type="submit">Kirim</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
