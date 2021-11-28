@@ -46,6 +46,7 @@
 }
 
 .thread-title {
+    font-size: x-large;
     grid-area: title;
 }
 
