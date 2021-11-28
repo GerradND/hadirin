@@ -7,6 +7,18 @@
     width: 100%;
 }
 
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-weight: x-large;
+}
+
 .page-content {
     width: 70vw;
     color: #2b2b2b;

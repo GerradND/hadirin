@@ -17,6 +17,7 @@
 
 .thread-title {
     grid-area: title;
+    font-size: x-large;
 }
 
 .thread-title.reply {
@@ -90,6 +91,7 @@
 }
 
 .reply-form h2 {
+    font-size: x-large;
     font-weight: 500;
 }
 
