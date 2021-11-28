@@ -6,3 +6,6 @@ def home(request):
 
 def profil(request):
     return render(request, 'main/profil.html')
+
+def profil_edit(request):
+    return render(request, 'main/profilEdit.html')
