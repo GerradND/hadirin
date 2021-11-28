@@ -9,4 +9,5 @@ urlpatterns = [
     path('1/', views.thread_detail, name='detail'),
     path('1/edit/', views.edit_thread, name='edit_thread'),
     path('1/reply/', views.reply_thread, name='reply_thread'),
+    path('1/delete/', views.delete_thread, name='delete_thread'),
 ]

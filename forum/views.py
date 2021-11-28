@@ -34,3 +34,6 @@ def edit_thread(request):
 
 def reply_thread(request):
     return render(request, 'forum/reply_thread.html')
+
+def delete_thread(request):
+    return render(request, 'forum/delete_thread.html')
