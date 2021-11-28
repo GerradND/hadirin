@@ -73,4 +73,5 @@
     align-items: flex-end;
     margin-top: 1em;
     row-gap: 1em;
+    width: 100%;
 }

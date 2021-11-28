@@ -38,17 +38,19 @@ a {
 
 .button-fill {
 	background-color:#045B62;
-	border:1px solid #ffffff;
+	border:1px solid #045B62;
 	color:#ffffff;
 }
 .button-fill:hover {
     background-color:#057179;
+	border:1px solid #057179;
     text-decoration:none;
 	color:#ffffff;
 }
 
 .button-fill:disabled {
     background-color:#e0dfdf;
+	border:1px solid #e0dfdf;
     color:#7c7c7c;
     cursor: auto;
 }
@@ -64,7 +66,7 @@ a {
 }
 
 .button-outline:hover {
-    background-color:#045B62;
+    background-color:#057179;
     color: #ffffff;
     text-decoration: none;
 }

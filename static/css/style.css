@@ -6,7 +6,7 @@
   margin: 0;
 }
 
-body {
+body, button, input, textarea {
   font-family: 'Rubik', sans-serif;
 }
 

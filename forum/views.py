@@ -6,3 +6,6 @@ def home(request):
 
 def thread_detail(request):
     return render(request, 'forum/thread_detail.html')
+
+def add_thread(request):
+    return render(request, 'forum/add_thread.html')
