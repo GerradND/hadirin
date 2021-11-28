@@ -3,6 +3,7 @@
 
 {% block meta %}
 <title>Hadirin - Forum</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock meta %}
 
@@ -11,18 +12,18 @@
     <div class="page-content">
         <div class="page-header">
             <h1>Forum</h1>
-            <a class="button-fill" href="">Buat Thread Baru</a>
+            <a class="button-fill" href="/forum/1">Buat Thread Baru</a>
         </div>
         <div class="threads">
             <div class="thread">
                 <div class="thread-content">
-                    <a href=""><h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2></a>
+                    <a href="/forum/1"><h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2></a>
                 </div>
                 <div class="thread-info">
                     <span class="thread-author">Budi Budiman</span>
                     <span class="thread-postdate">November 28 2021 7:54 PM</span>
                 </div>
-                <a href="" class="thread-reply-count">
+                <a href="/forum/1" class="thread-reply-count">
                     <img src="{% static 'img/ICON-reply.svg' %}" alt="">
                     <span>4</span>
                 </a>
@@ -30,13 +31,13 @@
 
             <div class="thread">
                 <div class="thread-content">
-                    <a href=""><h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2></a>
+                    <a href="/forum/1"><h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2></a>
                 </div>
                 <div class="thread-info">
                     <span class="thread-author">Susan Susanti</span>
                     <span class="thread-postdate">November 28 2021 8:01 PM</span>
                 </div>
-                <a href="" class="thread-reply-count">
+                <a href="/forum/1" class="thread-reply-count">
                     <img src="{% static 'img/ICON-reply.svg' %}" alt="">
                     <span>4</span>
                 </a>
