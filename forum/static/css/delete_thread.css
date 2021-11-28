@@ -1,0 +1,19 @@
+.confirmation-box {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* align-items: center; */
+    padding: 2em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 1em;
+    margin-top: .5em;
+}
+
+.confirm-message {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
