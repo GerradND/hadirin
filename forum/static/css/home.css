@@ -1,0 +1,63 @@
+.threads {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: 100%;
+}
+
+.thread {
+    display: grid;
+    grid-template-areas: 
+    "title title rep-count"
+    "info info rep-count";
+    padding: 2em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 1em;
+}
+
+.thread-info {
+    grid-area: info;
+    display: flex;
+    column-gap: 0.5em;
+}
+
+.thread-reply-count {
+    grid-area: rep-count;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 0.5em;
+}
+
+.thread-reply-count img{
+    width: 2em;
+    height: 2em;
+}
+
+.thread-reply-count span {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #045B62;
+}
+
+.thread-reply-count:hover {
+    opacity: 0.9;
+}
+
+.thread-title {
+    grid-area: title;
+}
+
+.thread-title:hover {
+    color: #057179;
+}
+
+.thread-author {
+    font-weight: 500;
+    color: #057179;
+}
+
+.thread-postdate {
+    font-weight: 300;
+}

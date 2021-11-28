@@ -2,29 +2,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  {% block meta %} {% endblock meta %}
-</head>
-
-<body>
-  <nav class="navbar">
-    <a href="/" class="nav-brand">Hadirin</a>
-    <ul class="nav-links">
-      <li><a href="">Presensi</a></li>
-      <li><a href="">Perizinan</a></li>
-      <li><a href="">Forum</a></li>
-      <li><a href="">Pengumuman</a></li>
-      <div class="nav-profile" tabindex="-1">
-        <button type="button" id="dropdown-button">
-          <img class="icon-user" src="{% static 'img/ICON-profile.svg' %}" alt="profile">
-        </button>
-        <div class="dropdown-items">
-          <a class="dropdown-item" href="">Profile</a>
-          <a class="dropdown-item" href="">Logout</a>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="nav-brand">Hadirin</a>
+      <ul class="nav-links">
+        <li><a href="">Presensi</a></li>
+        <li><a href="">Perizinan</a></li>
+        <li><a href="{% url 'forum:home' %}">Forum</a></li>
+        <li><a href="">Pengumuman</a></li>
+        <div class="nav-profile">
+          <button type="button" id="dropdown-button">
+            <img class="icon-user" src="{% static 'img/ICON-profile.svg' %}" alt="profile">
+          </button>
+          <div class="dropdown-items">
+            <a class="dropdown-item" href="">Profile</a>
+            <a class="dropdown-item" href="">Logout</a>
+          </div>
         </div>
       </div>
     </ul>
