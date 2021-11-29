@@ -6,6 +6,13 @@
   margin: 0;
 }
 
+:root {
+  --main-color: #045B62;
+  --main-hover: #045B62;
+  --danger: #e7658c;
+  --danger-hover: #db4471;
+}
+
 body, button, input, textarea {
   font-family: 'Rubik', sans-serif;
 }
@@ -20,7 +27,7 @@ body, button, input, textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #045B62;
+  background-color: var(--main-color);
   box-sizing: border-box;
   padding: 0.2em 15vw;
   width: 100%;
@@ -88,7 +95,7 @@ body, button, input, textarea {
   position: absolute;
   flex-direction: column;
   background-color: #fff;
-  color: #045B62;
+  color: var(--main-color);
   border: 1px solid #BABABA;
   border-radius: 10px;
   top: 3.3em;
@@ -97,7 +104,7 @@ body, button, input, textarea {
 }
 
 .dropdown-items a {
-  color: #045B62;
+  color: var(--main-color);
 }
 
 /* Button Styling */
@@ -115,8 +122,8 @@ body, button, input, textarea {
 
 
 .button-fill {
-	background-color:#045B62;
-	border:1px solid #045B62;
+	background-color:var(--main-color);
+	border:1px solid var(--main-color);
 	color:#ffffff;
 }
 .button-fill:hover {
@@ -127,20 +134,44 @@ body, button, input, textarea {
 }
 
 .button-fill:disabled {
-    background-color:#e0dfdf;
+  background-color:#e0dfdf;
 	border:1px solid #e0dfdf;
     color:#7c7c7c;
     cursor: auto;
 }
 
+.button-fill.danger {
+	background-color:var(--danger);
+	border:1px solid var(--danger);
+	color:#ffffff;
+}
+
+.button-fill.danger:hover {
+	background-color:var(--danger-hover);
+	border:1px solid var(--danger-hover);
+	color:#ffffff;
+}
+
+.button-outline.danger {
+	background-color: #ffffff;
+	border:1px solid var(--danger);
+	color: var(--danger);
+}
+
+.button-outline.danger:hover {
+  background-color:var(--danger-hover);
+	border:1px solid var(--danger-hover);
+	color: #ffffff;
+}
+
 .button-outline {
 	background-color:#ffffff;
-	border:1px solid #045B62;
-	color:#045B62;
+	border:1px solid var(--main-color);
+	color:var(--main-color);
 }
 
 .button-outline a {
-    color: #045B62;
+    color: var(--main-color);
 }
 
 .button-outline:hover {
