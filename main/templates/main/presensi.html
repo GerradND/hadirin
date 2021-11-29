@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Presensi</title>
+{% endblock meta %}
+
+{% block content %}
+<div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
+    <div class="flex flex-row">
+        <h1 class="text-4xl font-semibold">Presensi</h1>
+        <div class="flex-grow" />
+            <a href="/presensi/add">
+                <button class="mx-auto ml-4">
+                    <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                        +
+                    </div>
+                </button>
+            </a>
+        </div>
+    </div>
+    <span>Halo, [nanti disini ada nama]!</span>
+    <div class="mt-4">
+        <table class="table-auto w-full">
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Jam masuk</th>
+                <th>Jam Keluar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sabtu, 27 November 2021</td>
+                <td>08:00:00</td>
+                <td>20:00:00</td>
+              </tr>
+              <tr class="bg-green-200">
+                <td>Jumat, 26 November 2021</td>
+                <td>08:00:21</td>
+                <td>20:59:00</td>
+              </tr>
+              <tr>
+                <td>Thursday, 25 November 2021</td>
+                <td>07:59:00</td>
+                <td>20:50:00</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+{% endblock content %}

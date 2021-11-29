@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Thread 1</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/thread_detail.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<div class="thread-detail">
+			<h2 class="thread-title">Lorem ipsum dolor sit amet conquistador</h2>
+			<div class="thread-info">
+				<span class="thread-author">Budi Budiman</span>
+				<span class="thread-postdate">November 28 2021, 7:54 PM</span>
+			</div>
+			<p class="thread-message">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+				industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+				scrambled it to make a type specimen book.
+			</p>
+			<div class="thread-buttons">
+				<a href="/forum/1/delete/" class="action-button delete">Delete</a>
+				<a href="/forum/1/edit/" class="action-button">Edit</a>
+				<a href="/forum/1/reply/" class="action-button">Reply</a>
+			</div>
+		</div>
+		<div class="thread-replies">
+			<div class="thread-reply">
+				<div class="thread-info">
+					<span class="thread-author">Susan Susanti</span>
+					<span class="thread-postdate">November 28 2021, 8:27 PM</span>
+				</div>
+				<p class="thread-message">
+					Saya setuju dengan pendapat anda
+				</p>
+			</div>
+			<div class="thread-reply">
+				<div class="thread-info">
+					<span class="thread-author">Rudi Rudiman</span>
+					<span class="thread-postdate">November 28 2021, 9:01 PM</span>
+				</div>
+				<p class="thread-message">
+					Saya tidak setuju
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
