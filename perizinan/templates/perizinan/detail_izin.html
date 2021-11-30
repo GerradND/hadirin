@@ -8,15 +8,25 @@
 {% block content %}
 <div class="mx-40 my-20">
   <h1 class="text-4xl my-7 text-gray-800">Detail Izin</h1>
-  <div class="my-8">
-    <h2>{{ izin.staf }}</h2>
-    <h2>{{ izin.tanggal }}</h2>
-    <p>{{ izin.keterangan }}</p>
-    <p>{{ izin.status }}</p>
-    <div>
-      <button class="button-fill">V</button>
-      <button class="button-fill">X</button>
-    </div>
+  <div class="flex flex-col">
+    <a href="{% url 'perizinan:detail_izin' izin.id %}" class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
+      <div class="flex flex-col">
+        <h2 class="font-bold text-2xl mb-4">{{ izin.staf }}</h2>
+        <p class="font-light mb-2">{{ izin.tanggal }}</p>
+        <p class="mb-2">{{ izin.keterangan }}</p>
+        {% if izin.status == "Pending" %}
+        <span class="text-gray-500">{{ izin.status }}</span>
+        {% elif izin.status == "Disetujui" %}
+        <span class="text-green-500">{{ izin.status }}</span>
+        {% elif izin.status == "Ditolak" %}
+        <span class="text-red-500">{{ izin.status }}</span>
+        {% endif %}
+      </div>
+      <div class="flex justify-center items-center">
+        <button class="button-fill">V</button>
+        <button class="button-outline">X</button>
+      </div>
+    </a>
   </div>
   <a href="{% url 'perizinan:validasi_izin' %}"><button class="button-outline">Kembali</button></a>
 </div>

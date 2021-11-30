@@ -8,14 +8,14 @@ def validasi_izin(request):
         'daftar_izin': [
             {'id': 1,
             'staf': 'Agung',
-            'tanggal': '22/06/2021',
+            'tanggal': 'Desember 5 2021',
             'keterangan': 'Capek kerja pak',
-            'status': 'pending'},
+            'status': 'Pending'},
             {'id': 2,
             'staf': 'Bejo',
-            'tanggal': '22/06/2022',
+            'tanggal': 'Desember 28 2021',
             'keterangan': 'Sama pak',
-            'status': 'pending'}
+            'status': 'Disetujui'}
             ]
     }
     return render(request, 'perizinan/validasi_izin.html', context)
@@ -25,9 +25,9 @@ def detail_izin(request, id):
         'izin': {
             'id': 1,
             'staf': 'Agung',
-            'tanggal': '22/06/2021',
+            'tanggal': 'Desember 28 2021',
             'keterangan': 'Capek kerja pak',
-            'status': 'pending'
+            'status': 'Pending'
             }
     }
     return render(request, 'perizinan/detail_izin.html', context)
