@@ -22,5 +22,5 @@ class EditRoleDivisiView(UpdateView):
 
 class DeleteRoleDivisiView(DeleteView):
     model = RoleDivisi
-    success_url = reverse_lazy('role-divisi-list')
+    success_url = reverse_lazy('role_divisi_list')
     template_name = "role_divisi/confirm_delete.html"
