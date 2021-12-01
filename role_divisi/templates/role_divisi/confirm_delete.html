@@ -4,10 +4,11 @@
 {% block meta %}
     <title>Hadirin - Delete Role Divisi</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delete_thread.css' %}">
 {% endblock meta %}
 
 {% block content %}
-    <div class="container mx-auto">
+    <div class="container mx-auto page-content">
         <form method="post" class="confirmation-box">
             {% csrf_token %}
             <div class="confirm-message">

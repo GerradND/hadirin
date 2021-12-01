@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'perizinan',
     'forum',
     'pengumuman',
-    'autentikasi'
+    'autentikasi',
     'role_divisi',
 ]
 
