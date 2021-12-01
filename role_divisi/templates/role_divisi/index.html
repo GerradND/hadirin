@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Hadirin - Role Divisi</title>
+    <link rel="stylesheet" href="{% static 'role_divisi/css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+    <div class="container mx-auto flex flex-col space-y-6 mt-32">
+        <div class="flex space-between items-center justify-between">
+            <p class="font-bold text-xl">Role Divisi</p>
+            <a href="{% url 'role_divisi:add_role_divisi' %}">
+                <button class="font-bold rounded text-lg py-2 px-5 text-white">Tambah Role Divisi</button>
+            </a>
+        </div>
+
+        <div class="flex flex-col space-y-4">
+            <div class="rounded-lg border-2 pl-10 py-6 flex flex-col space-y-4">
+                <p class="text-xl font-bold">Lorem ipsum dolor sit amet conquistador</p>
+                <p class="text-base author">Budi Budiman</pt>
+            </div>
+
+            <div class="rounded-lg border-2 pl-10 py-6 flex flex-col space-y-4">
+                <p class="text-xl font-bold">Lorem ipsum dolor sit amet conquistador</p>
+                <p class="text-base author">Budi Budiman</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
