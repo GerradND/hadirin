@@ -3,36 +3,54 @@
 
 {% block meta %}
 <title>Hadirin - Detail Izin</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock meta %}
 
 {% block content %}
-<div class="mx-40 my-20">
-  <h1 class="font-bold text-4xl my-7 text-gray-800">Detail Izin</h1>
-  <div class="flex flex-col">
-    <div class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
-      <div class="flex flex-col">
-        <h2 class="font-bold text-2xl mb-4">{{ izin.staf }}<span class="text-base font-light ml-4">{{ izin.tanggal }}</span></h2>
-        <p class="text-justify mb-2 pr-10">{{ izin.keterangan }}</p>
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading mb-3">Detail Izin</h1>
+    <div class="flex flex-col">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="message-box {{ message.tags }}">
+          {{ message }}
       </div>
-      <div class="flex flex-col justify-center items-center">
-        <div class="font-bold m-3">
+      {% endfor %}
+      {% endif %}
+      <div class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
+        <div class="flex flex-col">
+          <h2 class="font-bold text-2xl mb-4">{{ izin.staf }}<span class="text-base font-light ml-4">{{ izin.tanggal }}</span></h2>
+          <p class="text-justify mb-2 pr-10">{{ izin.keterangan }}</p>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+          <div class="font-bold m-3">
+            {% if izin.status == "Pending" %}
+            <span class="text-gray-500">{{ izin.status }}</span>
+            {% elif izin.status == "Disetujui" %}
+            <span class="text-green-500">{{ izin.status }}</span>
+            {% elif izin.status == "Ditolak" %}
+            <span class="text-red-500">{{ izin.status }}</span>
+            {% endif %}
+          </div>
           {% if izin.status == "Pending" %}
-          <span class="text-gray-500">{{ izin.status }}</span>
-          {% elif izin.status == "Disetujui" %}
-          <span class="text-green-500">{{ izin.status }}</span>
-          {% elif izin.status == "Ditolak" %}
-          <span class="text-red-500">{{ izin.status }}</span>
+          <div class="flex">
+            <form action="" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="status" value="Disetujui" />
+              <button type="submit" class="button-fill mr-2">Setujui</button>
+            </form>
+            <form action="" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="status" value="Ditolak" />
+              <button type="submit" class="button-outline">Tolak</button>
+            </form>
+          </div>
           {% endif %}
         </div>
-        {% if izin.status == "Pending" %}
-        <div class="flex">
-          <button class="button-fill mr-2">Setujui</button>
-          <button class="button-outline">Tolak</button>
-        </div>
-        {% endif %}
       </div>
     </div>
+    <a href="{% url 'perizinan:validasi_izin' %}"><button class="button-outline">Kembali</button></a>
   </div>
-  <a href="{% url 'perizinan:validasi_izin' %}"><button class="button-outline">Kembali</button></a>
 </div>
 {% endblock content %}
