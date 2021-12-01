@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block meta %}
-    <title>Hadirin - Tambah Role Divisi</title>
-    <link rel="stylesheet" href="{% static 'role_divisi/css/index.css' %}">
+    <title>Hadirin - Ubah Role Divisi</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock meta %}
 
 {% block content %}
     <div class="container mx-auto flex flex-col mt-32">
-        <p class="font-bold text-2xl">Tambah Role Divisi</p>
-        <form class="border-2 rounded-md p-6" action="{% url 'role_divisi:add_role_divisi' %}">
+        <p class="font-bold text-2xl">Ubah Role Divisi</p>
+        <form method="post" class="border-2 rounded-md p-6" action="{% url 'role_divisi:add_role_divisi' %}">
+            {% csrf_token %}
             <div class="flex flex-col space-y-2 mb-4">
                 <p>Nama</p>
                 <input class="border-2 rounded-md p-1" type="text" placeholder="Nama role divisi">
