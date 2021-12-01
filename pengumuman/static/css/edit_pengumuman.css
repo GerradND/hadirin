@@ -1,0 +1,23 @@
+.confirmation-title {
+    padding: 1em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 2em;
+    margin-top: .5em;
+    margin-bottom: 2em;
+    background-color: #E8FBFF;
+    justify-content: center;
+    text-align: center;
+    width: 30%
+}
+
+.form-buat {
+    padding: 2em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 1em;
+}
+
+.form-isi {
+    border: 1px solid #949494;
+}
