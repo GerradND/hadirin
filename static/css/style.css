@@ -21,19 +21,13 @@ textarea {
   padding-top: 55px;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--main-color);
   box-sizing: border-box;
-  padding: 0.2em 15vw;
+  padding: 0.2em 10vw;
   width: 100%;
   position: fixed;
   top: 0px;
