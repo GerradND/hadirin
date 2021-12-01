@@ -10,13 +10,14 @@
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
-		<form class="confirmation-box" action="{% url 'forum:home' %}">
+		<form class="confirmation-box" action="{% url 'forum:delete_thread' %}" method="POST">
+			{% csrf_token %}
 			<div class="confirm-message">
 				<div>Apakah anda yakin menghapus thread dengan judul</div>
 				<div><strong>Lorem ipsum dolor sit amet conquistador</strong> ?</div>
 			</div>
 			<div class="form-buttons">
-				<a href="{% url 'forum:home' %}"><button type="button" class="button-outline danger">Batal</button></a>
+				<a href="/forum/1"><button type="button" class="button-outline danger">Batal</button></a>
 				<button class="button-fill danger" type="submit">Hapus</button>
 			</div>
 		</form>

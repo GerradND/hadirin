@@ -9,8 +9,9 @@
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
-		<h1 class="form-heading">Tambah Topik baru</h1>
-			<form class="form-box" action="{% url 'forum:home' %}">
+		<h1 class="form-heading">Buat Thread baru</h1>
+			<form class="form-box" action="{% url 'forum:add_thread' %}" method="POST">
+				{% csrf_token %}
 				<div class="form-field">
 					<label class="field-label">Judul</label>
 					<input class="form-input" type="text" placeholder="Judul Topik">
