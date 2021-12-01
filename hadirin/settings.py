@@ -56,8 +56,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'perizinan',
+    'forum',
     'pengumuman',
-    'forum'   
 ]
 
 MIDDLEWARE = [
