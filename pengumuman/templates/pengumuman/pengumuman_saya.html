@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Pengumuman Saya</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/pengumuman.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Pengumuman</h1>
+            <div class="pengumuman-buttons">
+                <a class="button-fill" href="{% url 'pengumuman:pengumuman' %}">Back</a>
+                <a class="button-fill" href="{% url 'pengumuman:buat_pengumuman' %}">Buat Pengumuman</a>
+            </div>
+        </div>
+        <div class="lst-pengumuman">
+            <div class="pengumuman">
+                <div class="pengumuman-konten">
+                    <a><h2 class="pengumuman-title"><strong>Lorem ipsum dolor sit amet conquistador</strong></h2></a>
+                    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>>
+                </div>
+                <div class="pengumuman-footer">
+                    <span class="pengumuman-author">Cecilia</span>
+                    <span class="pengumuman-postdate">November 29 2021 7:54 PM</span>
+                    <div class="pengumuman-buttons">
+                        <a href="{% url 'pengumuman:hapus_pengumuman' %}" class="action-button delete">Delete</a>
+                        <a href="{% url 'pengumuman:edit_pengumuman' %}" class="action-button">Edit</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pengumuman">
+                <div class="pengumuman-konten">
+                    <a><h2 class="pengumuman-title"><strong>Lorem ipsum dolor sit amet conquistador</strong></h2></a>
+                    <a>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</a>>
+                </div>
+                <div class="pengumuman-footer">
+                    <span class="pengumuman-author">Johnson</span>
+                    <span class="pengumuman-postdate">November 28 2021 7:54 PM</span>
+                    <div class="pengumuman-buttons">
+                        <a href="{% url 'pengumuman:hapus_pengumuman' %}" class="action-button delete">Delete</a>
+                        <a href="{% url 'pengumuman:edit_pengumuman' %}" class="action-button">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

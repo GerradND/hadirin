@@ -1,0 +1,28 @@
+.confirmation-title {
+    padding: 1em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 2em;
+    margin-top: .5em;
+    margin-bottom: 2em;
+    background-color: #FFDEDE;
+    justify-content: center;
+    text-align: center;
+    width: 30%
+}
+
+.confirmation-box {
+    padding: 2em;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    row-gap: 1em;
+    margin-top: .5em;
+}
+
+.confirm-message {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
