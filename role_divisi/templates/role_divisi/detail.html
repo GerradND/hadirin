@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Hadirin - Detail Role Divisi</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+    <div class="container mx-auto flex flex-col mt-32">
+        <p class="font-bold text-2xl">Detail Role Divisi</p>
+        <div>
+            <div class="flex flex-col space-y-2 mb-4">
+                <p>Nama</p>
+                <p>Lorem</p>
+            </div>
+            <div class="flex flex-col space-y-2 mb-16">
+                <p>Keterangan</p>
+                <p>Lorem ipsum</p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
