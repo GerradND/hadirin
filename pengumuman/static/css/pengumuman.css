@@ -1,0 +1,55 @@
+.lst-pengumuman {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: 100%;
+}
+
+.pengumuman {
+    display: grid;
+    grid-template-areas: 
+    "title title rep-count"
+    "info info rep-count";
+    padding: 2em;
+    border: 1px solid #949494;
+    flex-direction: row;
+    border-radius: 8px;
+    row-gap: 1em;
+}
+
+.pengumuman-footer {
+    grid-area: info;
+    display: flex;
+    column-gap: 0.5em;
+}
+
+.pengumuman-title {
+    font-size: x-large;
+    grid-area: title;
+}
+
+
+.pengumuman-author {
+    font-weight: 500;
+    color: #057179;
+}
+
+.pengumuman-postdate {
+    font-weight: 300;
+}
+
+.pengumuman-buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 2em;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.action-button {
+    color: #057179;
+}
+
+.action-button.delete {
+    color: #e7658c;
+}

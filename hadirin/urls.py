@@ -22,4 +22,5 @@ urlpatterns = [
     path('izin/', include('perizinan.urls')),
     path('forum/', include('forum.urls')),
     path('auth/', include('autentikasi.urls')),
+    path('pengumuman/', include('pengumuman.urls')),
 ]
