@@ -23,4 +23,5 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('auth/', include('autentikasi.urls')),
     path('pengumuman/', include('pengumuman.urls')),
+    path('role-divisi/', include('role_divisi.urls'))
 ]
