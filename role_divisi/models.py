@@ -12,3 +12,7 @@ class RoleDivisi(models.Model):
         if not isinstance(other, RoleDivisi):
             return NotImplemented
         return self.name == other.name
+
+    class Meta:
+        verbose_name = "role_divisi"
+        verbose_name_plural = "role_divisi"
