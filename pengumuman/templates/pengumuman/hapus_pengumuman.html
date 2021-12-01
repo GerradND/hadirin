@@ -13,13 +13,14 @@
 		<div><strong>Hapus Pengumuman</strong></div>
 	</div>
 	<div class="page-content">
-		<form class="confirmation-box" action="{% url 'pengumuman:pengumuman_saya' %}">
+		<form class="confirmation-box" action="{% url 'pengumuman:hapus_pengumuman' %}" method="POST">
+			{% csrf_token %}
 			<div class="confirm-message">
 				<div><strong>Apakah anda yakin menghapus pengumuman ini?</strong></div>
 			</div>
 			<div class="form-buttons">
 				<a href="{% url 'pengumuman:pengumuman_saya' %}"><button type="button" class="button-outline danger">Batal</button></a>
-				<button class="button-fill danger" type="submit">Hapus</button>
+				<a href="{% url 'pengumuman:pengumuman_saya' %}"><button class="button-fill danger" type="submit">Hapus</button></a>
 			</div>
 		</form>
 	</div>

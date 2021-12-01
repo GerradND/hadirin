@@ -35,17 +35,6 @@ UnitTest:
     - coverage run --parallel --include="./*" --omit="manage.py,hadirin/*"
       manage.py test --exclude-tag=functional
 
-FunctionalTest:
-  <<: *disable_on_template
-  <<: *coverage_artifacts
-  stage: test
-  before_script:
-    - apt-get update -q && apt-get install -yq chromium-driver
-    - *django_before_script
-  script:
-    - coverage run --parallel --include="./*" --omit="manage.py,hadirin/*"
-      manage.py test --tag=functional
-
 
 Coverage:
   <<: *disable_on_template
@@ -59,6 +48,22 @@ Coverage:
   artifacts:
     paths:
       - htmlcov/
+
+DeploymentDevelop:
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "develop"'
+  image: ruby:2.7
+  stage: deploy
+  before_script:
+    - gem install dpl
+    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  script:
+    - dpl --provider=heroku --app=$HEROKU_DEVELOP_APP_NAME --api-key=$HEROKU_API_KEY
+    - heroku run --app $HEROKU_DEVELOP_APP_NAME migrate
+  environment:
+    name: production
+    url: https://$HEROKU_APP_NAME.herokuapp.com
+
 
 Deployment:
   rules:

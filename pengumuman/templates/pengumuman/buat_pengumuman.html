@@ -14,7 +14,8 @@
 		<div><strong>Buat Pengumuman</strong></div>
 	</div>
 	<div class="page-content">
-			<form class="form-box" action="{% url 'pengumuman:pengumuman_saya' %}">
+			<form class="form-box" action="{% url 'pengumuman:buat_pengumuman' %}" method="POST">
+                {% csrf_token %}
 				<div class="form-field">
 					<label class="field-label">Judul</label>
 					<input class="form-input" type="text" placeholder="Judul Pengumuman">

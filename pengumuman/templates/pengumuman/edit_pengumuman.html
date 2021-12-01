@@ -14,7 +14,8 @@
 		<div><strong>Buat Pengumuman</strong></div>
 	</div>
 	<div class="page-content">
-			<form class="form-box" action="{% url 'pengumuman:pengumuman_saya' %}">
+			<form class="form-box" action="{% url 'pengumuman:edit_pengumuman' %}" method="POST">
+                {% csrf_token %}
 				<div class="form-field">
 					<label class="field-label">Judul</label>
 					<input class="form-input" type="text" placeholder="Judul Pengumuman">
@@ -25,7 +26,7 @@
 				</div>
 				<div class="form-buttons">
 					<a href="{% url 'pengumuman:pengumuman_saya' %}"><button type="button" class="button-outline">Batal</button></a>
-					<a href="{% url 'pengumuman:pengumuman_saya' %}"><button class="button-fill" type="submit">Simpan</button></a>
+					<a href="{% url 'pengumuman:pengumuman_saya' %}"><button class="button-fill" type="submit">Ubah</button></a>
 				</div>
             </form>
 	</div>

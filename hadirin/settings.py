@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'perizinan',
     'forum',
     'pengumuman',
+    'autentikasi'
 ]
 
 MIDDLEWARE = [
