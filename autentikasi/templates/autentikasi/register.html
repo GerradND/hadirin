@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Register</title>
+<link rel="stylesheet" href="{% static 'css/auth.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading">Registrasi Akun</h1>
+			<form class="form-box" action="{% url 'forum:add_thread' %}" method="POST">
+				{% csrf_token %}
+				<div class="form-field">
+					<label class="field-label">Username</label>
+					<input class="form-input" type="text" placeholder="Username">
+				</div>
+				<div class="form-field">
+					<label class="field-label">Password</label>
+					<input class="form-input" type="password" placeholder="Password"></input>
+				</div>
+                <div class="form-field">
+					<label class="field-label">Role</label>
+                    <select class="form-input" name="role">
+                        <option value="staff">Staff</option>
+                        <option value="staff">Supervisor</option>
+                    </select>
+				</div>
+                <div class="form-field">
+					<label class="field-label">Divisi</label>
+                    <select class="form-input" name="divisi">
+                        <option value="staff">IT</option>
+                        <option value="staff">HR</option>
+                    </select>
+				</div>
+				<div class="form-buttons">
+					<button class="button-fill" type="submit">Register</button>
+				</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

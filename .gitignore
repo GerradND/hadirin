@@ -80,5 +80,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Vscode
 .vscode
-.idea

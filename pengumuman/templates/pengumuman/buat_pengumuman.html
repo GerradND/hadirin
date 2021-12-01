@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Buat Pengumuman</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/pengumuman.css' %}">
+<link rel="stylesheet" href="{% static 'css/buat_pengumuman.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+    <div class="confirmation-title">
+		<div><strong>Buat Pengumuman</strong></div>
+	</div>
+	<div class="page-content">
+			<form class="form-box" action="{% url 'pengumuman:buat_pengumuman' %}" method="POST">
+                {% csrf_token %}
+				<div class="form-field">
+					<label class="field-label">Judul</label>
+					<input class="form-input" type="text" placeholder="Judul Pengumuman">
+				</div>
+				<div class="form-field">
+					<label class="field-label">Isi</label>
+					<textarea class="form-input" placeholder="Isi" rows="10"></textarea>
+				</div>
+				<div class="form-buttons">
+					<a href="{% url 'pengumuman:pengumuman_saya' %}"><button type="button" class="button-outline">Batal</button></a>
+					<a href="{% url 'pengumuman:pengumuman_saya' %}"><button class="button-fill" type="submit">Simpan</button></a>
+				</div>
+            </form>
+	</div>
+</div>
+
+{% endblock content %}

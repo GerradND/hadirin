@@ -56,8 +56,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'pengumuman',
+    'perizinan',
     'forum',
+    'pengumuman',
+    'autentikasi'
     'role_divisi',
 ]
 

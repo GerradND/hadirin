@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Hapus Pengumuman</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/hapus_pengumuman.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="confirmation-title">
+		<div><strong>Hapus Pengumuman</strong></div>
+	</div>
+	<div class="page-content">
+		<form class="confirmation-box" action="{% url 'pengumuman:hapus_pengumuman' %}" method="POST">
+			{% csrf_token %}
+			<div class="confirm-message">
+				<div><strong>Apakah anda yakin menghapus pengumuman ini?</strong></div>
+			</div>
+			<div class="form-buttons">
+				<a href="{% url 'pengumuman:pengumuman_saya' %}"><button type="button" class="button-outline danger">Batal</button></a>
+				<a href="{% url 'pengumuman:pengumuman_saya' %}"><button class="button-fill danger" type="submit">Hapus</button></a>
+			</div>
+		</form>
+	</div>
+</div>
+</div>
+
+{% endblock content %}

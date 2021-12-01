@@ -1,7 +1,12 @@
 # Hadirin
 
+## Badge Main Branch
 [![pipeline status][pipeline-badge]][commits-gl]
 [![coverage report][coverage-badge]][commits-gl]
+
+## Badge Develop Branch
+[![pipeline status][pipeline-badge-develop]][commits-gl-develop]
+[![coverage report][coverage-badge-develop]][commits-gl-develop]
 
 Repo ini menyimpan TK Kelompok 10 mata kuliah RPL Ganjil 2021/2022
 
@@ -77,5 +82,8 @@ Repo ini menyimpan TK Kelompok 10 mata kuliah RPL Ganjil 2021/2022
     ```
 
 [pipeline-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/main/pipeline.svg
+[pipeline-badge-develop]: https://gitlab.com/tk-rpl-a/hadirin/badges/develop/pipeline.svg
 [coverage-badge]: https://gitlab.com/tk-rpl-a/hadirin/badges/main/coverage.svg
+[coverage-badge-develop]: https://gitlab.com/tk-rpl-a/hadirin/badges/develop/coverage.svg
 [commits-gl]: https://gitlab.com/tk-rpl-a/hadirin/-/commits/main
+[commits-gl-develop]: https://gitlab.com/tk-rpl-a/hadirin/-/commits/develop
