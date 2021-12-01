@@ -226,3 +226,25 @@ textarea {
   column-gap: 1em;
   margin-top: 1.5em;
 }
+
+.message-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: medium;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.message-box.success {
+  border-color: rgba(5, 113, 121, 0.6);
+  background-color: rgba(5, 113, 121, 0.2);
+}
+
+.message-box.error {
+  border-color: var(--danger-hover);
+  background-color: rgba(219, 68, 113, 0.2);
+}

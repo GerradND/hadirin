@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import redirect, render
 
 # Dummy Data
 thread = {
@@ -17,7 +18,7 @@ thread = {
     ]
 }
 
-threads = [thread, thread]
+# threads = [thread, thread]
 
 # Create your views here.
 def home(request):
@@ -27,6 +28,9 @@ def thread_detail(request):
     return render(request, 'forum/thread_detail.html')
 
 def add_thread(request):
+    if request.method == 'POST':
+        messages.success(request, 'Thread berhasil dibuat')
+        return redirect('forum:home')
     return render(request, 'forum/add_thread.html')
 
 def edit_thread(request):
@@ -36,4 +40,7 @@ def reply_thread(request):
     return render(request, 'forum/reply_thread.html')
 
 def delete_thread(request):
+    if request.method == 'POST':
+        messages.success(request, 'Thread berhasil dihapus')
+        return redirect('forum:home')
     return render(request, 'forum/delete_thread.html')
