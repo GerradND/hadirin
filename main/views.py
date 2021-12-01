@@ -9,3 +9,9 @@ def profil(request):
 
 def profil_edit(request):
     return render(request, 'main/profilEdit.html')
+
+def presensi(request):
+    return render(request, 'main/presensi.html')
+
+def presensi_edit(request):
+    return render(request, 'main/presensiEdit.html')
