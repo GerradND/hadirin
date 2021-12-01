@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block meta %}
-<title>Validasi Izin</title>
+<title>Hadirin - Validasi Izin</title>
 {% endblock meta %}
 
 {% block content %}
 <div class="mx-40 my-20">
-  <h1 class="text-4xl my-7 text-gray-800">Validasi Izin</h1>
+  <h1 class="font-bold text-4xl my-7 text-gray-800">Validasi Izin</h1>
   <div class="flex flex-col">
     {% for izin in daftar_izin %}
-    <a href="{% url 'perizinan:detail_izin' izin.id %}" class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
+    <div class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
       <div class="flex flex-col">
-        <h2 class="font-bold text-2xl mb-4">{{ izin.staf }}</h2>
+        <h2 class="font-bold text-2xl mb-2">{{ izin.staf }}</h2>
         <p class="font-light">{{ izin.tanggal }}</p>
       </div>
       <div class="flex justify-center items-center font-bold">
@@ -23,9 +23,11 @@
         {% elif izin.status == "Ditolak" %}
         <span class="text-red-500">{{ izin.status }}</span>
         {% endif %}
-        <img src="{% static 'perizinan/img/ICON-right-arrow-button.svg' %}" alt="" class="ml-4">
+        <a href="{% url 'perizinan:detail_izin' izin.id %}">
+          <img src="{% static 'perizinan/img/ICON-right-arrow-button.svg' %}" alt="" class="ml-4 hover:opacity-90">
+        </a>
       </div>
-    </a>
+    </div>
     {% endfor %}
   </div>
 </div>
