@@ -12,15 +12,17 @@
         <p class="font-bold text-2xl">Ubah Role Divisi</p>
         <form class="border-2 rounded-md p-6" method="post">
             {% csrf_token %}
-            {{form.as_p}}
-{#            <div class="flex flex-col space-y-2 mb-4">#}
-{#                <p>Nama</p>#}
-{#                <input class="border-2 rounded-md p-1" type="text" placeholder="Nama role divisi">#}
-{#            </div>#}
-{#            <div class="flex flex-col space-y-2 mb-16">#}
-{#                <p>Keterangan</p>#}
-{#                <textarea class="border-2 rounded-md p-1" placeholder="Keterangan"></textarea>#}
-{#            </div>#}
+            {{ form.non_field_errors }}
+
+            {% for field in form %}
+                {{ field.errors }}
+                <div class="flex flex-col space-y-2 mb-4">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+                <span>{{ field.help_text }}</span>
+            {% endfor %}
+
             <div class="flex space-x-4 items-center justify-center">
                 <button class="button-outline">Batal</button>
                 <button class="button-fill" type="submit">Simpan</button>
