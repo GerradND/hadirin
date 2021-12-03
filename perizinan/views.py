@@ -1,5 +1,8 @@
+from .models import Izin
+from datetime import datetime
 from django.contrib import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
+
 
 daftar_izin = [
     {
@@ -30,19 +33,30 @@ daftar_izin = [
     }
 ]
 
+Izin(1, "Budi", datetime.now(), "Capek pak").save()
+Izin(2, "Harun", datetime.now(), "Sama pak").save()
+
+
 def index(request):
     return render(request, 'perizinan/index.html')
+
 
 def add_izin(request):
     if request.method == 'POST':
         return redirect('perizinan:index')
     return render(request, 'perizinan/add_izin.html')
 
+
 def validasi_izin(request):
+    daftar_izin = Izin.objects.all()
     return render(request, 'perizinan/validasi_izin.html', {'daftar_izin': daftar_izin})
 
+
 def detail_izin(request, id):
+    izin = get_object_or_404(Izin, pk=id)
     if request.method == 'POST':
         status = request.POST['status']
+        izin.status = status
+        izin.save()
         return redirect('perizinan:validasi_izin')
-    return render(request, 'perizinan/detail_izin.html', {'izin': daftar_izin[0]})
+    return render(request, 'perizinan/detail_izin.html', {'izin': izin})
