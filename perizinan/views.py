@@ -1,7 +1,8 @@
 from .models import Izin
-from datetime import datetime
+from .forms import IzinForm
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+import datetime
 
 
 daftar_izin = [
@@ -33,8 +34,8 @@ daftar_izin = [
     }
 ]
 
-Izin(1, "Budi", datetime.now(), "Capek pak").save()
-Izin(2, "Harun", datetime.now(), "Sama pak").save()
+Izin(1, "Budi", datetime.date.today(), "Capek pak").save()
+Izin(2, "Harun", datetime.date.today(), "Sama pak").save()
 
 
 def index(request):
@@ -42,9 +43,21 @@ def index(request):
 
 
 def add_izin(request):
+    form = IzinForm(request.POST)
+
     if request.method == 'POST':
+        form = IzinForm(request.POST)
+        if form.is_valid():
+            print(request.POST)
+            izin = form.save(commit=False)
+            izin.id = 5
+            izin.staf = "Charlie"
+            # tanggal = form.cleaned_data['tanggal']
+            # keterangan = form.cleaned_data['keterangan']
+            # izin = Izin("Charlie", tanggal, keterangan)
+            izin.save()
         return redirect('perizinan:index')
-    return render(request, 'perizinan/add_izin.html')
+    return render(request, 'perizinan/add_izin.html', {'form': form})
 
 
 def validasi_izin(request):
