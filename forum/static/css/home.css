@@ -36,6 +36,7 @@
 }
 
 .thread-reply-count span {
+    min-width: 1em;
     font-size: 1.25em;
     font-weight: 500;
     color: #045B62;
