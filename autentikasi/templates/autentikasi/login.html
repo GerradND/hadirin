@@ -10,15 +10,15 @@
 <div class="page-container">
 	<div class="page-content">
 		<h1 class="form-heading">Login</h1>
-			<form class="form-box" action="{% url 'forum:add_thread' %}" method="POST">
+			<form class="form-box" action="{% url 'autentikasi:login' %}" method="POST">
 				{% csrf_token %}
 				<div class="form-field">
 					<label class="field-label">Username</label>
-					<input class="form-input" type="text" placeholder="Username">
+					<input class="form-input" type="text" name="username" placeholder="Username">
 				</div>
 				<div class="form-field">
 					<label class="field-label">Password</label>
-					<input class="form-input" type="password" placeholder="Password"></input>
+					<input class="form-input" type="password" name="password" placeholder="Password"></input>
 				</div>
 				<div class="form-buttons">
 					<button class="button-fill" type="submit">Login</button>
