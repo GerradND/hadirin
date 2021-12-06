@@ -189,3 +189,13 @@ body, button, input, textarea {
   column-gap: 1em;
   margin-top: 1.5em;
 }
+input {
+  border: #7c7c7c;
+  border-width: 2;
+  border-radius: 50rem;
+  padding: 2rem;
+}
+#id_username {
+  margin-bottom: 1rem;
+  border: #057179 2rem;
+}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Masuk</title>
+{% endblock meta %}
+
+{% block content %}
+<div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
+    <div class="flex flex-row">
+        <h1 class="text-4xl font-semibold">Masuk</h1>
+        <div class="flex-grow" />
+    </div>
+</div>
+<span>Masuk ke sistem Hadirin</span>
+<div class="mt-4">
+    <div class="mt-4">
+            <div id="login">
+                <form class="form-horizontal" name="LoginForm" action="/accounts/login/" method="post">
+                    {% csrf_token %}
+                    <div class="control-group">
+                        <label class="control-label" for="username">Username</label>
+                        <div class="controls">
+                            <input type="text" id="username" name="username" placeholder="Username" class="px-2 py-2">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Password</label>
+                        <div class="controls">
+                            <input type="password" name="password" id="password" placeholder="Password" class="px-2 py-2">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button type="submit" class="mx-auto w-100">
+                            <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                                Masuk
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
