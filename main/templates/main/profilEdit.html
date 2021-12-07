@@ -3,34 +3,56 @@
 
 {% block meta %}
 <title>Hadirin - Profil</title>
+<style>
+    input {
+        width: 100%;
+    }
+    *:focus {
+        outline: none;
+    }
+
+</style>
 {% endblock meta %}
 
 {% block content %}
 <div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
     <div class="flex flex-row">
         <h1 class="text-4xl font-semibold">Edit Profil</h1>
-        <div class="flex-grow" />
-            <a href="/profil">
-                <button class="mx-auto ml-4">
-                    <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
-                        Simpan
-                    </div>
-                </button>
-            </a>
-            <a href="/profil">
-                <button class="mx-auto ml-4">
-                    <div class="bg-red-600 text-red-100 py-2 px-4 rounded-lg">
-                        Batal
-                    </div>
-                </button>
-            </a>
-        </div>
     </div>
     <div class="mt-4">
-        <h2 class="text-md font-light italic">Nama Lengkap</h2>
-        <input class="border-2 border-gray rounded-lg py-2 px-2 w-full" />
-        <h2 class="text-md font-light italic">Surel</h2>
-        <input class="border-2 border-gray rounded-lg py-2 px-2 w-full" />
+        <form method="post">
+            {% csrf_token %}
+            <div class='mb-2'>
+                <h2 class="text-md font-light italic">Nama Depan</h2>
+                <div class="border-2 border-gray rounded-lg py-2 px-2 w-full">
+                    {{ form.first_name }}
+                </div>
+                <h2 class="text-md font-light italic">Nama Belakang</h2>
+                <div class="border-2 border-gray rounded-lg py-2 px-2 w-full">
+                    {{ form.last_name }}
+                </div>
+                <h2 class="text-md font-light italic">Surel</h2>
+                <div class="border-2 border-gray rounded-lg py-2 px-2 w-full">
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="flex flex-row">
+                <a href="/profil">
+                    <button class="mx-auto ml-4">
+                        <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                            Simpan
+                        </div>
+                    </button>
+                </a>
+                <a href="/profil">
+                    <button class="mx-auto ml-4">
+                        <div class="bg-red-600 text-red-100 py-2 px-4 rounded-lg">
+                            Batal
+                        </div>
+                    </button>
+                </a>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock content %}
