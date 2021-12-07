@@ -6,23 +6,28 @@
   margin: 0;
 }
 
-body, button, input, textarea {
-  font-family: 'Rubik', sans-serif;
+:root {
+  --main-color: #045b62;
+  --main-hover: #045b62;
+  --danger: #e7658c;
+  --danger-hover: #db4471;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+body,
+button,
+input,
+textarea {
+  font-family: 'Rubik', sans-serif;
+  padding-top: 55px;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #045B62;
+  background-color: var(--main-color);
   box-sizing: border-box;
-  padding: 0.2em 15vw;
+  padding: 0.2em 10vw;
   width: 100%;
   position: fixed;
   top: 0px;
@@ -40,7 +45,9 @@ body, button, input, textarea {
   color: #fcfcfc;
 }
 
-.nav-links a:hover, .nav-brand:hover, .nav-profile img:hover {
+.nav-links a:hover,
+.nav-brand:hover,
+.nav-profile img:hover {
   opacity: 0.8;
 }
 
@@ -88,8 +95,8 @@ body, button, input, textarea {
   position: absolute;
   flex-direction: column;
   background-color: #fff;
-  color: #045B62;
-  border: 1px solid #BABABA;
+  color: var(--main-color);
+  border: 1px solid #bababa;
   border-radius: 10px;
   top: 3.3em;
   right: 0.5em;
@@ -97,60 +104,84 @@ body, button, input, textarea {
 }
 
 .dropdown-items a {
-  color: #045B62;
+  color: var(--main-color);
 }
 
 /* Button Styling */
-.button-fill, .button-outline {
-	border-radius:4px;
-	cursor:pointer;
-	padding:10px 31px;
-    text-decoration:none;
-    margin-bottom: 1em ;
-    min-width: 8em;
-    text-align: center;
-    font-size: .9em;
-    font-weight: 500;
+.button-fill,
+.button-outline {
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 31px;
+  text-decoration: none;
+  margin-bottom: 1em;
+  min-width: 8em;
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: 500;
 }
-
 
 .button-fill {
-	background-color:#045B62;
-	border:1px solid #045B62;
-	color:#ffffff;
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: #ffffff;
 }
 .button-fill:hover {
-    background-color:#057179;
-	border:1px solid #057179;
-    text-decoration:none;
-	color:#ffffff;
+  background-color: #057179;
+  border: 1px solid #057179;
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .button-fill:disabled {
-    background-color:#e0dfdf;
-	border:1px solid #e0dfdf;
-    color:#7c7c7c;
-    cursor: auto;
+  background-color: #e0dfdf;
+  border: 1px solid #e0dfdf;
+  color: #7c7c7c;
+  cursor: auto;
+}
+
+.button-fill.danger {
+  background-color: var(--danger);
+  border: 1px solid var(--danger);
+  color: #ffffff;
+}
+
+.button-fill.danger:hover {
+  background-color: var(--danger-hover);
+  border: 1px solid var(--danger-hover);
+  color: #ffffff;
+}
+
+.button-outline.danger {
+  background-color: #ffffff;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.button-outline.danger:hover {
+  background-color: var(--danger-hover);
+  border: 1px solid var(--danger-hover);
+  color: #ffffff;
 }
 
 .button-outline {
-	background-color:#ffffff;
-	border:1px solid #045B62;
-	color:#045B62;
+  background-color: #ffffff;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
 }
 
 .button-outline a {
-    color: #045B62;
+  color: var(--main-color);
 }
 
 .button-outline:hover {
-    background-color:#057179;
-    color: #ffffff;
-    text-decoration: none;
+  background-color: #057179;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .button-outline:hover a {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /* Form Styling */
@@ -161,7 +192,7 @@ body, button, input, textarea {
   border: 1px solid #949494;
   border-radius: 8px;
   row-gap: 1em;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .form-field {
@@ -188,4 +219,26 @@ body, button, input, textarea {
   width: 100%;
   column-gap: 1em;
   margin-top: 1.5em;
+}
+
+.message-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: medium;
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.message-box.success {
+  border-color: rgba(5, 113, 121, 0.6);
+  background-color: rgba(5, 113, 121, 0.2);
+}
+
+.message-box.error {
+  border-color: var(--danger-hover);
+  background-color: rgba(219, 68, 113, 0.2);
 }

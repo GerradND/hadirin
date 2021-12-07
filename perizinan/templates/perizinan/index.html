@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Perizinan</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading mb-3">Perizinan</h1>
+    <a href="/izin/add"><button class="button-fill">Ajukan Izin</button></a>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Validasi Izin</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading mb-3">Validasi Izin</h1>
+    <div class="flex flex-col">
+      {% for izin in daftar_izin %}
+      <div class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
+        <div class="flex flex-col">
+          <h2 class="font-bold text-2xl mb-2">{{ izin.staf }}</h2>
+          <p class="font-light">{{ izin.tanggal }}</p>
+        </div>
+        <div class="flex justify-center items-center font-bold">
+          {% if izin.status == "Pending" %}
+          <span class="text-gray-500">{{ izin.status }}</span>
+          {% elif izin.status == "Disetujui" %}
+          <span class="text-green-500">{{ izin.status }}</span>
+          {% elif izin.status == "Ditolak" %}
+          <span class="text-red-500">{{ izin.status }}</span>
+          {% endif %}
+          <a href="{% url 'perizinan:detail_izin' izin.id %}">
+            <img src="{% static 'perizinan/img/ICON-right-arrow-button.svg' %}" alt="" class="ml-4 hover:opacity-90">
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock content %}

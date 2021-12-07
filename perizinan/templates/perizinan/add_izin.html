@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Pengajuan Izin</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading mb-3">Pengajuan Izin</h1>
+    <form action="" method="POST" class="form-box">
+      {% csrf_token %}
+      <div class="form-field">
+        <label class="field-label">Tanggal</label>
+        <input class="form-input" type="date">
+      </div>
+      <div class="form-field">
+        <label class="field-label">Keterangan</label>
+        <textarea class="form-input" placeholder="Keterangan" rows="10"></textarea>
+      </div>
+      <div class="form-buttons">
+        <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
+        <button class="button-fill" type="submit">Ajukan</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

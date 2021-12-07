@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block meta %}
-<title>Hadirin - Add New Thread</title>
+<title>Hadirin - Delete Thread</title>
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 <link rel="stylesheet" href="{% static 'css/delete_thread.css' %}">
 {% endblock meta %}
@@ -10,14 +10,15 @@
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
-		<form class="confirmation-box" action="{% url 'forum:home' %}">
+		<form class="confirmation-box" action="{% url 'forum:delete_thread' thread.id %}" method="POST">
+			{% csrf_token %}
 			<div class="confirm-message">
 				<div>Apakah anda yakin menghapus thread dengan judul</div>
-				<div><strong>Lorem ipsum dolor sit amet conquistador</strong> ?</div>
+				<div><strong>{{thread.title}}</strong>?</div>
 			</div>
 			<div class="form-buttons">
-				<a href="{% url 'forum:home' %}"><button type="button" class="button-outline">Batal</button></a>
-				<button class="button-fill" type="submit">Hapus</button>
+				<a href="{% url 'forum:detail_thread' thread.id %}"><button type="button" class="button-outline danger">Batal</button></a>
+				<button class="button-fill danger" type="submit">Hapus</button>
 			</div>
 		</form>
 	</div>
