@@ -1,8 +1,13 @@
 from datetime import datetime
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+
+from .models import Presensi
 from .forms import IsiPresensi
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, request
 from django.urls import reverse
+from django.views import generic
 
 
 def home(request):
@@ -14,9 +19,18 @@ def profil(request):
 def profil_edit(request):
     return render(request, 'main/profilEdit.html')
 
-def presensi(request):
-    return render(request, 'main/presensi.html')
-
+## def presensi(request):
+    ## return render(request, 'main/presensi.html')
+@method_decorator(login_required, name='dispatch')
+class presensi(generic.ListView):
+    model =  Presensi
+    template_name = 'main/presensi.html'
+    def get_queryset(self):
+        user = self.request.user
+        queryset = Presensi.objects.all().filter(user=user)
+        return (queryset)
+        
+    
 def presensi_edit(request):
     args = {}
 
