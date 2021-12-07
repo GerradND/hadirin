@@ -59,7 +59,8 @@ INSTALLED_APPS = [
     'perizinan',
     'forum',
     'pengumuman',
-    'autentikasi'
+    'autentikasi',
+    'role_divisi',
 ]
 
 MIDDLEWARE = [
@@ -138,13 +139,15 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
+
+# DATETIME_FORMAT = 'M d, Y · H:m'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -168,3 +171,6 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # Enable compression and caching features of whitenoise.
 # You can remove this if it causes problems on your setup.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = 'main:home'
+LOGIN_URL = 'autentikasi:login'
