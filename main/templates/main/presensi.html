@@ -19,32 +19,30 @@
             </a>
         </div>
     </div>
-    <span>Halo, [nanti disini ada nama]!</span>
+    <span>Halo, {% firstof user.get_full_name user.get_username %}!</span>
+    <span>Waktu dinyatakan dalam UTC</span>
+    <span>Catatan: Anda hanya dapat absen satu kali sehari. Jika anda melakukan check out kembali sebelum berganti hari, waktu keluar anda akan ditimpa.</span>
     <div class="mt-4">
         <table class="table-auto w-full">
             <thead>
               <tr>
-                <th>Tanggal</th>
-                <th>Jam masuk</th>
-                <th>Jam Keluar</th>
+                <th>Tanggal, Jam masuk</th>
+                <th>Tanggal, Jam Keluar</th>
               </tr>
             </thead>
             <tbody>
+              {% if presensi_list %}
+              {% for presensi in presensi_list %}
               <tr>
-                <td>Sabtu, 27 November 2021</td>
-                <td>08:00:00</td>
-                <td>20:00:00</td>
+                <td>{{presensi.masuk}}</td>
+                <td>{{presensi.keluar}}</td>
               </tr>
-              <tr class="bg-green-200">
-                <td>Jumat, 26 November 2021</td>
-                <td>08:00:21</td>
-                <td>20:59:00</td>
-              </tr>
+              {% endfor %}
+              {% else %}
               <tr>
-                <td>Thursday, 25 November 2021</td>
-                <td>07:59:00</td>
-                <td>20:50:00</td>
+                <td colpan=3>Belum ada absensi</td>
               </tr>
+              {% endif %}
             </tbody>
           </table>
     </div>
