@@ -1,17 +1,18 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import RoleDivisi
 from django.urls import reverse_lazy
 
 
-class BaseRoleDivisiView:
+class BaseRoleDivisiView(LoginRequiredMixin):
     model = RoleDivisi
     fields = '__all__'
     context_object_name = "role_divisi"
 
 
-class IndexView(BaseRoleDivisiView, ListView):
+class IndexView(LoginRequiredMixin, ListView):
     context_object_name = 'role_divisi_list'
     template_name = "role_divisi/index.html"
 
