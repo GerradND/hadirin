@@ -12,8 +12,15 @@
 	<div class="confirmation-title">
 		<div><strong>Hapus Pengumuman</strong></div>
 	</div>
+	{% if messages %}
+	{% for message in messages %}
+	<div class="message-box {{ message.tags }}">
+		{{ message }}
+	</div>
+	{% endfor %}
+	{% endif %}
 	<div class="page-content">
-		<form class="confirmation-box" action="{% url 'pengumuman:hapus_pengumuman' %}" method="POST">
+		<form class="confirmation-box" action="{% url 'pengumuman:hapus_pengumuman' id=id%}" method="POST">
 			{% csrf_token %}
 			<div class="confirm-message">
 				<div><strong>Apakah anda yakin menghapus pengumuman ini?</strong></div>
