@@ -7,6 +7,7 @@ from django.db.models.deletion import CASCADE
 # Create your models here.
 
 class Presensi(models.Model):
+    id = models.AutoField(primary_key=True)
     user =  models.ForeignKey(User, on_delete=models.CASCADE)
     masuk = models.DateTimeField('Masuk', blank=True)
     keluar = models.DateTimeField('Keluar', blank=True, null=True)
