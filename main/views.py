@@ -1,5 +1,5 @@
 from datetime import datetime
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from .models import Presensi
@@ -10,13 +10,20 @@ from django.views import generic
 from .forms import UpdateProfile
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
-    return render(request, 'main/home.html')
+    if request.user.is_superuser:
+        return redirect('role_divisi:role_divisi_list')
+    else:
+        return redirect('main:presensi')
 
+@login_required
 def profil(request):
     return render(request, 'main/profil.html')
 
+@login_required
 def profil_edit(request):
     args = {}
 
@@ -42,7 +49,7 @@ class presensi(generic.ListView):
         queryset = Presensi.objects.all().filter(user=user)
         return (queryset)
         
-    
+@login_required
 def presensi_edit(request):
     args = {}
 

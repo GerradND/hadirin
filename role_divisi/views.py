@@ -12,7 +12,7 @@ class BaseRoleDivisiView(LoginRequiredMixin):
     context_object_name = "role_divisi"
 
 
-class IndexView(LoginRequiredMixin, ListView):
+class IndexView(BaseRoleDivisiView, ListView):
     context_object_name = 'role_divisi_list'
     template_name = "role_divisi/index.html"
 

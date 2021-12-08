@@ -13,17 +13,22 @@
     <nav class="navbar">
       <a href="/" class="nav-brand">Hadirin</a>
       <ul class="nav-links">
+        {% if  user.is_superuser %}
+        <li><a href="{% url 'role_divisi:role_divisi_list' %}">Divisi</a></li>
+        <li><a href="{% url 'autentikasi:register' %}">Registrasi Akun</a></li>
+        {% else %}
         <li><a href="/presensi">Presensi</a></li>
         <li><a href="{% url 'perizinan:index' %}">Perizinan</a></li>
         <li><a href="{% url 'forum:home' %}">Forum</a></li>
+        {% endif %}
         <li><a href="{% url 'pengumuman:pengumuman' %}">Pengumuman</a></li>
         <div class="nav-profile" tabindex="-1">
           <button type="button" id="dropdown-button">
             <img class="icon-user" src="{% static 'img/ICON-profile.svg' %}" alt="profile">
           </button>
           <div class="dropdown-items">
-            <a class="dropdown-item" href="/profil">Profile</a>
             {% if user.is_authenticated %}
+            <a class="dropdown-item" href="/profil">Profile</a>
             <a class="dropdown-item" href="{% url 'autentikasi:logout' %}">Logout</a>
             {% else %}
             <a class="dropdown-item" href="{% url 'autentikasi:logout' %}">Login</a>
