@@ -9,5 +9,8 @@ class RoleDivisi(models.Model):
     class Meta:
         db_table = 'role_divisi'
 
+    class Meta:
+        db_table = 'role_divisi'
+
     def __str__(self):
         return self.nama
