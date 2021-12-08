@@ -1,15 +1,25 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 from .models import RoleDivisi
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 
-class BaseRoleDivisiView(LoginRequiredMixin):
+class BaseRoleDivisiView(LoginRequiredMixin, UserPassesTestMixin):
     model = RoleDivisi
     fields = '__all__'
     context_object_name = "role_divisi"
+
+    def test_func(self):
+        return self.request.user.is_superuser
+
+    def get_permission_denied_message(self):
+        return f"User {self.request.user} bukan seorang admin"
+
+    def handle_no_permission(self):
+        return redirect('main:home')
 
 
 class IndexView(BaseRoleDivisiView, ListView):

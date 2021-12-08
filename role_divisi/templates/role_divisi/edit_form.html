@@ -24,7 +24,7 @@
             {% endfor %}
 
             <div class="flex space-x-4 items-center justify-center">
-                <button class="button-outline">Batal</button>
+				<a href="{% url 'role_divisi:role_divisi_list' %}" class="button-outline">Batal</a>
                 <button class="button-fill" type="submit">Simpan</button>
             </div>
         </form>
