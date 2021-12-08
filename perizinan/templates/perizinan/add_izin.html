@@ -14,11 +14,11 @@
       {% csrf_token %}
       <div class="form-field">
         <label class="field-label">Tanggal</label>
-        <input class="form-input" type="date">
+        {{ form.tanggal }}
       </div>
       <div class="form-field">
         <label class="field-label">Keterangan</label>
-        <textarea class="form-input" placeholder="Keterangan" rows="10"></textarea>
+        {{ form.keterangan }}
       </div>
       <div class="form-buttons">
         <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
