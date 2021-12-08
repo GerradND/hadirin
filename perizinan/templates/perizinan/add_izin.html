@@ -9,6 +9,13 @@
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message-box {{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
 		<h1 class="form-heading mb-3">Pengajuan Izin</h1>
     <form action="" method="POST" class="form-box">
       {% csrf_token %}
@@ -21,7 +28,7 @@
         {{ form.keterangan }}
       </div>
       <div class="form-buttons">
-        <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
+        <a href="{% url 'perizinan:index' %}"><button type="button" class="button-outline">Batal</button></a>
         <button class="button-fill" type="submit">Ajukan</button>
       </div>
     </form>
