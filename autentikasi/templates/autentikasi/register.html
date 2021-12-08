@@ -9,31 +9,46 @@
 {% block content %}
 <div class="page-container">
 	<div class="page-content">
+		{% if messages %}
+        {% for message in messages %}
+        <div class="message-box {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
 		<h1 class="form-heading">Registrasi Akun</h1>
-			<form class="form-box" action="{% url 'forum:add_thread' %}" method="POST">
+			<form class="form-box" action="{% url 'autentikasi:register' %}" method="POST">
 				{% csrf_token %}
 				<div class="form-field">
-					<label class="field-label">Username</label>
-					<input class="form-input" type="text" placeholder="Username">
+					<label class="field-label" >Username</label>
+					<input class="form-input" name='username' type="text" placeholder="Username">
+				</div>
+				<div class="form-field">
+					<label class="field-label">Email</label>
+					<input class="form-input" name="email" type="email" placeholder="Email"></input>
 				</div>
 				<div class="form-field">
 					<label class="field-label">Password</label>
-					<input class="form-input" type="password" placeholder="Password"></input>
+					<input class="form-input" name="password1" type="password" placeholder="Password"></input>
+				</div>
+				<div class="form-field">
+					<label class="field-label">Confirm Password</label>
+					<input class="form-input" name="password2" type="password" placeholder="Confirm Password"></input>
 				</div>
                 <div class="form-field">
 					<label class="field-label">Role</label>
                     <select class="form-input" name="role">
-                        <option value="staff">Staff</option>
-                        <option value="staff">Supervisor</option>
+                        <option value="staf">Staff</option>
+                        <option value="sup">Supervisor</option>
                     </select>
 				</div>
-                <div class="form-field">
+                <!-- <div class="form-field">
 					<label class="field-label">Divisi</label>
                     <select class="form-input" name="divisi">
                         <option value="staff">IT</option>
                         <option value="staff">HR</option>
                     </select>
-				</div>
+				</div> -->
 				<div class="form-buttons">
 					<button class="button-fill" type="submit">Register</button>
 				</div>
