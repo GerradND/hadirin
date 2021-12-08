@@ -12,9 +12,9 @@
     <div class="page-content">
         <div class="page-header">
             <h1>Pengumuman</h1>
-            <!-- {% if role != "staf" %} -->
+            {% if role != "staf" %}
             <a class="button-fill" href="{% url 'pengumuman:pengumuman_saya' %}">Pengumuman Saya</a>
-            <!-- {% endif %} -->
+            {% endif %}
         </div>
         <div class="lst-pengumuman">
             {% for isi in pengumuman %}

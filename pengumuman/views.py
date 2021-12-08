@@ -9,29 +9,29 @@ from .models import Pengumuman
 # Create your views here.
 context = {}
 
+@login_required
 def pengumuman(request):
-    if request.user.is_authenticated:
-        user = User.objects.get(id=request.user.id) #!!!
-        pengumuman = Pengumuman.objects.order_by("-tanggal_post")
-        context["pengumuman"] = pengumuman
-        context["user"] = user
-        # context["role"] = request.user.role
-        return render(request, 'pengumuman/pengumuman.html', context)
-    else:
-        return redirect("autentikasi:login")
+    user = User.objects.get(id=request.user.id) #!!!
+    pengumuman = Pengumuman.objects.order_by("-tanggal_post")
+    context["pengumuman"] = pengumuman
+    context["user"] = user
+    context["role"] = request.user.profile.role
+    return render(request, 'pengumuman/pengumuman.html', context)
 
+@login_required
 def pengumuman_saya(request):
-    if request.user.is_authenticated:
+    if request.user.profile.role != "staf":
         user = User.objects.get(id = request.user.id)
         pengumuman = Pengumuman.objects.filter(user = user).order_by("-tanggal_post")
         context["pengumuman"] = pengumuman
         context["user"] = request.user.username
         return render(request, 'pengumuman/pengumuman_saya.html', context)
     else:
-        return redirect("autentikasi:login")
+        return redirect("main:home")
 
+@login_required
 def buat_pengumuman(request):
-    if request.user.is_authenticated:
+    if request.user.profile.role != "staf":
         context["user"] = request.user.username
         context["form"] = PengumumanForm()
         if request.method == 'POST':
@@ -48,10 +48,11 @@ def buat_pengumuman(request):
                 return redirect("pengumuman:buat_pengumuman")
         return render(request, 'pengumuman/buat_pengumuman.html', context)
     else:
-        return redirect("autentikasi:login")
+        return redirect("main:home")
 
+@login_required
 def edit_pengumuman(request, id):
-    if request.user.is_authenticated:
+    if request.user.profile.role != "staf":
         context["id"] = id
         pengumuman = get_object_or_404(Pengumuman, id=id)
         if request.method == 'POST':
@@ -76,10 +77,11 @@ def edit_pengumuman(request, id):
         return render(request, 'pengumuman/edit_pengumuman.html', context)
 
     else:
-        return redirect("autentikasi:login")
+        return redirect("main:home")
 
+@login_required
 def hapus_pengumuman(request, id):
-    if request.user.is_authenticated:
+    if request.user.profile.role != "staf":
         pengumuman = get_object_or_404(Pengumuman, id=id)
         context["id"] = id
         if request.method == 'POST':
@@ -89,4 +91,4 @@ def hapus_pengumuman(request, id):
         return render(request, 'pengumuman/hapus_pengumuman.html', context)
 
     else:
-        return redirect("autentikasi:login")
+        return redirect("main:home")
