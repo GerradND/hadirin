@@ -23,7 +23,11 @@
           </button>
           <div class="dropdown-items">
             <a class="dropdown-item" href="/profil">Profile</a>
+            {% if user.is_authenticated %}
             <a class="dropdown-item" href="{% url 'autentikasi:logout' %}">Logout</a>
+            {% else %}
+            <a class="dropdown-item" href="{% url 'autentikasi:logout' %}">Login</a>
+            {% endif %}
           </div>
         </div>
       </div>
