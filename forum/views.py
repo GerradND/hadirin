@@ -4,6 +4,7 @@ from forum.forms import ThreadForm, ThreadReplyForm
 from django.contrib.auth.decorators import login_required
 from forum.models import Thread
 
+@login_required
 def home(request):
     threads = Thread.objects.all()
     return render(request, 'forum/index.html', { "threads": threads })
