@@ -8,6 +8,5 @@ from .forms import *
 class TestPengumuman(TestCase):
 
     def test_harus_login(self):
-        response = Client().get('/auth/login')
-        self.assertEquals(response.status_code, 200)
-        
+        response = Client().get('/')
+        self.assertEquals(response.status_code, 302)
