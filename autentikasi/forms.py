@@ -9,6 +9,7 @@ class UserRegistrationForm(UserCreationForm):
         ('sup', 'Supervisor'),
     )
     role = forms.ChoiceField(choices=ROLE_CHOICES)
+    divisi = forms.CharField(max_length=50)
     
     class Meta:
         model = User

@@ -42,13 +42,14 @@
                         <option value="sup">Supervisor</option>
                     </select>
 				</div>
-                <!-- <div class="form-field">
+                <div class="form-field">
 					<label class="field-label">Divisi</label>
                     <select class="form-input" name="divisi">
-                        <option value="staff">IT</option>
-                        <option value="staff">HR</option>
+						{% for divisi in divisi_list %}
+							<option value="{{divisi.id}}">{{divisi.nama}}</option>
+						{% endfor %}
                     </select>
-				</div> -->
+				</div>
 				<div class="form-buttons">
 					<button class="button-fill" type="submit">Register</button>
 				</div>

@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from autentikasi.forms import UserRegistrationForm
 from autentikasi.models import Profile
+from role_divisi.models import RoleDivisi
 
 def login_view(request):
     return render(request, 'autentikasi/login.html')
@@ -17,9 +18,13 @@ def register(request):
         if form.is_valid():
             user = form.save()
             role = form.cleaned_data.get('role')
-            Profile.objects.create(user=user,role=role)
+            divisi_id = form.cleaned_data.get('divisi')
+            divisi = RoleDivisi.objects.get(id= divisi_id)
+            Profile.objects.create(user=user,role=role, divisi=divisi)
             return redirect('autentikasi:login')
         else:
             messages.error(request, form.errors)
 
-    return render(request, 'autentikasi/register.html')
+    divisi_list = RoleDivisi.objects.all()
+    context = { 'divisi_list' : divisi_list }
+    return render(request, 'autentikasi/register.html', context)
