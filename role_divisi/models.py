@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class RoleDivisi(models.Model):
     nama = models.CharField(max_length=50)
     keterangan = models.TextField()
