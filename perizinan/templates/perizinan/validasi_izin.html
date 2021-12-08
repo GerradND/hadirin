@@ -18,12 +18,12 @@
           <p class="font-light">{{ izin.tanggal }}</p>
         </div>
         <div class="flex justify-center items-center font-bold">
-          {% if izin.status == "Pending" %}
-          <span class="text-gray-500">{{ izin.status }}</span>
-          {% elif izin.status == "Disetujui" %}
-          <span class="text-green-500">{{ izin.status }}</span>
-          {% elif izin.status == "Ditolak" %}
-          <span class="text-red-500">{{ izin.status }}</span>
+          {% if izin.status == "PD" %}
+          <span class="text-gray-500">{{ izin.get_status_display }}</span>
+          {% elif izin.status == "ST" %}
+          <span class="text-green-500">{{ izin.get_status_display }}</span>
+          {% elif izin.status == "TL" %}
+          <span class="text-red-500">{{ izin.get_status_display }}</span>
           {% endif %}
           <a href="{% url 'perizinan:detail_izin' izin.id %}">
             <img src="{% static 'perizinan/img/ICON-right-arrow-button.svg' %}" alt="" class="ml-4 hover:opacity-90">
