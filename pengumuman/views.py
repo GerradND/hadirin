@@ -12,7 +12,7 @@ context = {}
 @login_required
 def pengumuman(request):
     user = User.objects.get(id=request.user.id) #!!!
-    pengumuman = Pengumuman.objects.order_by("tanggal_post")
+    pengumuman = Pengumuman.objects.order_by("-tanggal_post")
     context["pengumuman"] = pengumuman
     context["user"] = user
     return render(request, 'pengumuman/pengumuman.html', context)
@@ -20,7 +20,7 @@ def pengumuman(request):
 @login_required
 def pengumuman_saya(request):
     user = User.objects.get(id = request.user.id)
-    pengumuman = Pengumuman.objects.filter(user = user).order_by("tanggal_post")
+    pengumuman = Pengumuman.objects.filter(user = user).order_by("-tanggal_post")
     context["pengumuman"] = pengumuman
     context["user"] = request.user.username
     return render(request, 'pengumuman/pengumuman_saya.html', context)
