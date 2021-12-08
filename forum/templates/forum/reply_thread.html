@@ -30,7 +30,7 @@
 		<div class="thread-replies">
 			<form class="reply-form" action="{% url 'forum:reply_thread' thread.id %}" method="POST">
 				{% csrf_token %}
-				<h2>Re: Lorem ipsum dolor sit amet conquistador</h2>
+				<h2>Re: {{thread.title}}</h2>
 				<textarea class="form-input" rows="10" placeholder="Tulis pesan" name="content"></textarea>
 				<div class="reply-buttons">
 					<a href="/forum/1/"><button type="button" class="button-outline">Batal</button></a>
