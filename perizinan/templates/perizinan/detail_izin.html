@@ -25,24 +25,24 @@
         </div>
         <div class="flex flex-col justify-center items-center">
           <div class="font-bold m-3">
-            {% if izin.status == "Pending" %}
-            <span class="text-gray-500">{{ izin.status }}</span>
-            {% elif izin.status == "Disetujui" %}
-            <span class="text-green-500">{{ izin.status }}</span>
-            {% elif izin.status == "Ditolak" %}
-            <span class="text-red-500">{{ izin.status }}</span>
+            {% if izin.status == "PD" %}
+            <span class="text-gray-500">{{ izin.get_status_display }}</span>
+            {% elif izin.status == "ST" %}
+            <span class="text-green-500">{{ izin.get_status_display }}</span>
+            {% elif izin.status == "TL" %}
+            <span class="text-red-500">{{ izin.get_status_display }}</span>
             {% endif %}
           </div>
-          {% if izin.status == "Pending" %}
+          {% if izin.status == "PD" %}
           <div class="flex">
             <form action="" method="POST">
               {% csrf_token %}
-              <input type="hidden" name="status" value="Disetujui" />
+              <input type="hidden" name="status" value="ST" />
               <button type="submit" class="button-fill mr-2">Setujui</button>
             </form>
             <form action="" method="POST">
               {% csrf_token %}
-              <input type="hidden" name="status" value="Ditolak" />
+              <input type="hidden" name="status" value="TL" />
               <button type="submit" class="button-outline">Tolak</button>
             </form>
           </div>
@@ -50,7 +50,7 @@
         </div>
       </div>
     </div>
-    <a href="{% url 'perizinan:validasi_izin' %}"><button class="button-outline">Batal</button></a>
+    <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
   </div>
 </div>
 {% endblock content %}
