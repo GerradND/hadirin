@@ -1,12 +1,12 @@
 from django.urls import path
-from .views import add_role_divisi, edit_role_divisi, index, delete_role_divisi, role_divisi_detail
+from .views import IndexView, DetailRoleDivisiView, AddRoleDivisiView, EditRoleDivisiView, DeleteRoleDivisiView
 
 app_name = 'role_divisi'
 
 urlpatterns = [
-    path('', index, name='role_divisi_list'),
-    path('1/', role_divisi_detail, name='detail_role_divisi'),
-    path('tambah/', add_role_divisi, name='add_role_divisi'),
-    path('ubah/1/', edit_role_divisi, name='edit_role_divisi'),
-    path('hapus/1/', delete_role_divisi, name='delete_role_divisi')
+    path('', IndexView.as_view(), name='role_divisi_list'),
+    path('<int:pk>/', DetailRoleDivisiView.as_view(), name='detail_role_divisi'),
+    path('tambah/', AddRoleDivisiView.as_view(), name='add_role_divisi'),
+    path('ubah/<int:pk>/', EditRoleDivisiView.as_view(), name='edit_role_divisi'),
+    path('hapus/<int:pk>/', DeleteRoleDivisiView.as_view(), name='delete_role_divisi')
 ]
