@@ -11,24 +11,20 @@ context = {}
 
 @login_required
 def pengumuman(request):
-    user = User.objects.get(id=request.user.id) #!!!
+    user = User.objects.get(id=request.user.id)
     pengumuman = Pengumuman.objects.order_by("-tanggal_post")
     context["pengumuman"] = pengumuman
     context["user"] = user
-    try:
-        context["role"] = request.user.profile.role
-    except:
+    if request.user.is_superuser:
         context["role"] = "admin"
+    else:
+        context["role"] = request.user.profile.role
+
     return render(request, 'pengumuman/pengumuman.html', context)
 
 @login_required
 def pengumuman_saya(request):
-    print(request.user.is_authenticated)
-    try:
-        role = request.user.profile.role
-    except:
-        role = "admin"
-    if role != "staf":
+    if request.user.is_superuser or request.user.profile.role != "staf":
         user = User.objects.get(id = request.user.id)
         pengumuman = Pengumuman.objects.filter(user = user).order_by("-tanggal_post")
         context["pengumuman"] = pengumuman
@@ -38,12 +34,7 @@ def pengumuman_saya(request):
 
 @login_required
 def buat_pengumuman(request):
-    print(request.user.is_authenticated)
-    try:
-        role = request.user.profile.role
-    except:
-        role = "admin"
-    if role != "staf":
+    if request.user.is_superuser or request.user.profile.role != "staf":
         context["form"] = PengumumanForm()
         if request.method == 'POST':
             user = User.objects.get(id = request.user.id)
@@ -63,12 +54,7 @@ def buat_pengumuman(request):
 
 @login_required
 def edit_pengumuman(request, id):
-    print(request.user.is_authenticated)
-    try:
-        role = request.user.profile.role
-    except:
-        role = "admin"
-    if role != "staf":
+    if request.user.is_superuser or request.user.profile.role != "staf":
         context["id"] = id
         pengumuman = get_object_or_404(Pengumuman, id=id)
         if request.method == 'POST':
@@ -97,12 +83,7 @@ def edit_pengumuman(request, id):
 
 @login_required
 def hapus_pengumuman(request, id):
-    print(request.user.is_authenticated)
-    try:
-        role = request.user.profile.role
-    except:
-        role = "admin"
-    if role != "staf":
+    if request.user.is_superuser or request.user.profile.role != "staf":
         pengumuman = get_object_or_404(Pengumuman, id=id)
         context["id"] = id
         if request.method == 'POST':
