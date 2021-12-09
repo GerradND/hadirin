@@ -51,7 +51,7 @@ Coverage:
 
 DeploymentDevelop:
   rules:
-    - if: '$CI_COMMIT_REF_NAME == "develop"'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
   image: ruby:2.7
   stage: deploy
   before_script:
@@ -67,7 +67,7 @@ DeploymentDevelop:
 
 Deployment:
   rules:
-    - if: '$CI_COMMIT_REF_NAME == "main"'
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"'
   image: ruby:2.7
   stage: deploy
   before_script:
