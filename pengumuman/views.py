@@ -15,24 +15,35 @@ def pengumuman(request):
     pengumuman = Pengumuman.objects.order_by("-tanggal_post")
     context["pengumuman"] = pengumuman
     context["user"] = user
-    context["role"] = request.user.profile.role
+    try:
+        context["role"] = request.user.profile.role
+    except:
+        context["role"] = "admin"
     return render(request, 'pengumuman/pengumuman.html', context)
 
 @login_required
 def pengumuman_saya(request):
-    if request.user.profile.role != "staf":
+    print(request.user.is_authenticated)
+    try:
+        role = request.user.profile.role
+    except:
+        role = "admin"
+    if role != "staf":
         user = User.objects.get(id = request.user.id)
         pengumuman = Pengumuman.objects.filter(user = user).order_by("-tanggal_post")
         context["pengumuman"] = pengumuman
-        context["user"] = request.user.username
         return render(request, 'pengumuman/pengumuman_saya.html', context)
     else:
         return redirect("main:home")
 
 @login_required
 def buat_pengumuman(request):
-    if request.user.profile.role != "staf":
-        context["user"] = request.user.username
+    print(request.user.is_authenticated)
+    try:
+        role = request.user.profile.role
+    except:
+        role = "admin"
+    if role != "staf":
         context["form"] = PengumumanForm()
         if request.method == 'POST':
             user = User.objects.get(id = request.user.id)
@@ -52,7 +63,12 @@ def buat_pengumuman(request):
 
 @login_required
 def edit_pengumuman(request, id):
-    if request.user.profile.role != "staf":
+    print(request.user.is_authenticated)
+    try:
+        role = request.user.profile.role
+    except:
+        role = "admin"
+    if role != "staf":
         context["id"] = id
         pengumuman = get_object_or_404(Pengumuman, id=id)
         if request.method == 'POST':
@@ -81,7 +97,12 @@ def edit_pengumuman(request, id):
 
 @login_required
 def hapus_pengumuman(request, id):
-    if request.user.profile.role != "staf":
+    print(request.user.is_authenticated)
+    try:
+        role = request.user.profile.role
+    except:
+        role = "admin"
+    if role != "staf":
         pengumuman = get_object_or_404(Pengumuman, id=id)
         context["id"] = id
         if request.method == 'POST':
