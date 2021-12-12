@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Presensi</title>
+{% endblock meta %}
+
+{% block content %}
+<div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
+    <form method="post">
+        {% csrf_token %}
+    <div class="flex flex-row">
+        <h1 class="text-4xl font-semibold">Presensi</h1>
+        <div class="flex-grow" />
+          <a href="/presensi">
+            <button class="mx-auto ml-4">
+                <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                    Check In/Out
+                </div>
+            </button>
+          </a>
+          <a href="/presensi">
+              <button class="mx-auto ml-4">
+                  <div class="bg-red-600 text-red-100 py-2 px-4 rounded-lg">
+                      Batal
+                  </div>
+              </button>
+          </a>
+        </div>
+    </div>
+    <span>Halo, [nanti disini ada nama]!</span>
+    <div class="mt-4">
+        
+            {{form.as_p}}
+        
+      <h2 class="text-md font-light italic">Waktu saat ini</h2>
+      <input class="border-2 border-gray rounded-lg py-2 px-2 w-full" disabled placeholder="Nanti disini dikasi jam"></div>
+    </div>
+    </form>
+</div>
+{% endblock content %}

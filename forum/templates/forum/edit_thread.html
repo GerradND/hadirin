@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin -Edit Thread</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		{% if messages %}
+        {% for message in messages %}
+        <div class="message-box {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+		<h1 class="form-heading">Ubah Thread</h1>
+		<form class="form-box" action="{% url 'forum:edit_thread' thread.id %}" method="POST">
+			{% csrf_token %}
+			<div class="form-field">
+				<label class="field-label">Judul</label>
+				<input class="form-input" type="text" placeholder="Judul Topik" name="title" value="{{thread.title}}">
+			</div>
+			<div class="form-field">
+				<label class="field-label">Konten</label>
+				<textarea class="form-input" placeholder="Konten" name="content" value="{{thread.content}}"
+					rows="10">{{thread.content}}</textarea>
+			</div>
+			<div class="form-buttons">
+				<a href="{% url 'forum:detail_thread' thread.id %}"><button class="button-outline">Batal</button></a>
+				<button class="button-fill" type="submit">Simpan</button>
+			</div>
+	</div>
+</div>
+
+{% endblock content %}

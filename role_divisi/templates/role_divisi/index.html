@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Hadirin - Role Divisi</title>
+    <link rel="stylesheet" href="{% static 'role_divisi/css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+    <div class="page-content container mx-auto flex flex-col space-y-6">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message-box {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="flex space-between items-center justify-between">
+            <p class="font-bold text-xl">Role Divisi</p>
+            <a href="{% url 'role_divisi:add_role_divisi' %}">
+                <button class="font-bold rounded text-lg py-2 px-5 text-white">Tambah Role Divisi</button>
+            </a>
+        </div>
+
+        {% for role_divisi in role_divisi_list %}
+            <div class="flex flex-col space-y-4">
+                <div class="rounded-lg border-2 px-10 py-4 flex justify-between items-center">
+					<p class="text-lg font-bold">{{ role_divisi.nama }}</p>
+                    <div class="flex space-x-4 items-center">
+                        <a href="{% url 'role_divisi:detail_role_divisi' role_divisi.id %}">Detail</a>
+                        <a href="{% url 'role_divisi:edit_role_divisi' role_divisi.id %}">Ubah</a>
+                        <a href="{% url 'role_divisi:delete_role_divisi' role_divisi.id %}" class="delete">Hapus</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

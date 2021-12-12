@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Presensi</title>
+{% endblock meta %}
+
+{% block content %}
+<div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
+    <div class="flex flex-row">
+        <h1 class="text-4xl font-semibold">Presensi</h1>
+        <div class="flex-grow" />
+            <a href="/presensi/add">
+                <button class="mx-auto ml-4">
+                    <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                        +
+                    </div>
+                </button>
+            </a>
+        </div>
+    </div>
+    <span>Halo, {% firstof user.get_full_name user.get_username %}!</span>
+    <span>Waktu dinyatakan dalam UTC</span>
+    <span>Catatan: Anda hanya dapat absen satu kali sehari. Jika anda melakukan check out kembali sebelum berganti hari, waktu keluar anda akan ditimpa.</span>
+    <div class="mt-4">
+        <table class="table-auto w-full">
+            <thead>
+              <tr>
+                <th>Tanggal, Jam masuk</th>
+                <th>Tanggal, Jam Keluar</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if presensi_list %}
+              {% for presensi in presensi_list %}
+              <tr>
+                <td>{{presensi.masuk}}</td>
+                <td>{{presensi.keluar}}</td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              <tr>
+                <td colpan=3>Belum ada absensi</td>
+              </tr>
+              {% endif %}
+            </tbody>
+          </table>
+    </div>
+</div>
+{% endblock content %}

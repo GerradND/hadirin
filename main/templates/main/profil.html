@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Profil</title>
+{% endblock meta %}
+
+{% block content %}
+<div style="max-width: 720px" class="mx-auto border-2 border-gray rounded-xl px-4 py-2 flex flex-col">
+    <div class="flex flex-row">
+        <h1 class="text-4xl font-semibold">Profil</h1>
+        <div class="flex-grow" />
+            <a href="/profil/edit">
+                <button class="mx-auto ml-4">
+                    <div class="bg-green-600 text-green-100 py-2 px-4 rounded-lg">
+                        Edit
+                    </div>
+                </button>
+            </a>
+        </div>
+    </div>
+    <span>Halo, {{ user.get_username }}!</span>
+    <div class="mt-4">
+        <h2 class="text-md font-light italic">Nama Lengkap</h2>
+        <span class="text-lg">{% firstof user.get_full_name user.get_username %}</span>
+        <h2 class="text-md font-light italic">Surel</h2>
+        <span class="text-lg">{{ user.email }}</span>
+        <h2 class="text-md font-light italic">Login terakhir</h2>
+        <span class="text-lg">{{ user.last_login }}</span>
+    </div>
+</div>
+{% endblock content %}

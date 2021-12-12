@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Reply Thread</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/thread_detail.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		{% if messages %}
+        {% for message in messages %}
+        <div class="message-box {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+		<div class="thread-detail">
+			<h2 class="thread-title">{{thread.title}}</h2>
+			<div class="thread-info">
+				<span class="thread-author">{{thread.user}}</span>
+				<span class="thread-postdate">{{thread.date_posted}}</span>
+			</div>
+			<p class="thread-message">
+				{{thread.content}}
+			</p>
+		</div>
+		<div class="thread-replies">
+			<form class="reply-form" action="{% url 'forum:reply_thread' thread.id %}" method="POST">
+				{% csrf_token %}
+				<h2>Re: {{thread.title}}</h2>
+				<textarea class="form-input" rows="10" placeholder="Tulis pesan" name="content"></textarea>
+				<div class="reply-buttons">
+					<a href="/forum/1/"><button type="button" class="button-outline">Batal</button></a>
+					<button class="button-fill" type="submit">Kirim</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

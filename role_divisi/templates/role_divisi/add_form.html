@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+    <title>Hadirin - Tambah Role Divisi</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'role_divisi/css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+    <div class="container mx-auto flex flex-col page-content">
+        <p class="font-bold text-2xl">Tambah Role Divisi</p>
+        <form method="post" class="border-2 rounded-md p-6 flex flex-col">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            {% for field in form %}
+                {{ field.errors }}
+                <div class="flex flex-col space-y-2 mb-4">
+                    {{ field.label_tag }}
+                    {{ field }}
+                </div>
+                <span>{{ field.help_text }}</span>
+            {% endfor %}
+            <div class="flex space-x-4 items-center justify-center mt-16">
+				<a href="{% url 'role_divisi:role_divisi_list' %}" class="button-outline">Batal</a>
+                <button class="button-fill" type="submit">Simpan</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

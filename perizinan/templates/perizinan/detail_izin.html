@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Detail Izin</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<h1 class="form-heading mb-3">Detail Izin</h1>
+    <div class="flex flex-col">
+      {% if messages %}
+      {% for message in messages %}
+      <div class="message-box {{ message.tags }}">
+          {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      <div class="flex justify-between mb-4 border rounded-lg border-gray-300 p-8">
+        <div class="flex flex-col">
+          <h2 class="font-bold text-2xl mb-4">{{ izin.staf }}<span class="text-base font-light ml-4">{{ izin.tanggal }}</span></h2>
+          <p class="text-justify mb-2 pr-10">{{ izin.keterangan }}</p>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+          <div class="font-bold m-3">
+            {% if izin.status == "PD" %}
+            <span class="text-gray-500">{{ izin.get_status_display }}</span>
+            {% elif izin.status == "ST" %}
+            <span class="text-green-500">{{ izin.get_status_display }}</span>
+            {% elif izin.status == "TL" %}
+            <span class="text-red-500">{{ izin.get_status_display }}</span>
+            {% endif %}
+          </div>
+          {% if izin.status == "PD" %}
+          <div class="flex">
+            <form action="" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="status" value="ST" />
+              <button type="submit" class="button-fill mr-2">Setujui</button>
+            </form>
+            <form action="" method="POST">
+              {% csrf_token %}
+              <input type="hidden" name="status" value="TL" />
+              <button type="submit" class="button-outline">Tolak</button>
+            </form>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <a href="{% url 'perizinan:index' %}"><button class="button-outline">Batal</button></a>
+  </div>
+</div>
+{% endblock content %}

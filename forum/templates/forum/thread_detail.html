@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block meta %}
+<title>Hadirin - Thread 1</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/thread_detail.css' %}">
+{% endblock meta %}
+
+{% block content %}
+<div class="page-container">
+	<div class="page-content">
+		<div class="thread-detail">
+			<h2 class="thread-title">{{thread.title}}</h2>
+			<div class="thread-info">
+				<span class="thread-author">{{thread.user.username}}</span>
+				<span class="thread-postdate">{{thread.date_posted}}</span>
+			</div>
+			<p class="thread-message">
+				{{thread.content}}
+			</p>
+			<div class="thread-buttons">
+				{% if request.user == thread.user %}
+				<a href="{% url 'forum:delete_thread' thread.id %}" class="action-button delete">Hapus</a>
+				<a href="{% url 'forum:edit_thread' thread.id %}" class="action-button">Ubah</a>
+				{% endif %}
+				<a href="{% url 'forum:reply_thread' thread.id %}" class="action-button">Balas</a>
+			</div>
+		</div>
+		<div class="thread-replies">
+			{% for reply in thread.replies.all %}
+			<div class="thread-reply">
+				<div class="thread-info">
+					<span class="thread-author">{{reply.user}}</span>
+					<span class="thread-postdate">{{reply.date_posted}}</span>
+				</div>
+				<p class="thread-message">
+					{{reply.content}}
+				</p>
+			</div>
+			<!-- <div class="thread-reply">
+				<div class="thread-info">
+					<span class="thread-author">Rudi Rudiman</span>
+					<span class="thread-postdate">November 28 2021, 9:01 PM</span>
+				</div>
+				<p class="thread-message">
+					Saya tidak setuju
+				</p>
+			</div> -->
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
